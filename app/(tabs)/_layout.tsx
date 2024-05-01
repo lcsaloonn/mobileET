@@ -22,6 +22,7 @@ const TabsLayout = () => {
         {tabsList.map((e) => (
           <Tabs.Screen
             name={`screens/${e.name}`}
+            key={e.name}
             options={{
               title: e.name,
               headerShown: false,
