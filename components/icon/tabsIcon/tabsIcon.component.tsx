@@ -6,7 +6,10 @@ const TabsComponent = ({ icon, color, name, focus }) => {
   return (
     <View className="items-center justify-center gap-2">
       <IconComponents icon={icon} color={color} />
-      <Text className={`${focus ? "font-psemibold" : "font-regular"}`}>
+      <Text
+        className={`${focus ? "font-psemibold" : "font-regular"}`}
+        style={{ color: color }}
+      >
         {name}
       </Text>
     </View>
