@@ -14,7 +14,7 @@ const AlbumMiniatureComponent = ({
 }: TAlbumMiniatureComponent) => {
   return (
     <View>
-      <ImageComponent picture={"mocks/albums/t1.jpg"} style={styles.image} />
+      <ImageComponent picture={image} style={styles.image} />
       <Text style={styles.albumName}>{albumName}</Text>
       <Text style={styles.numberImage}>#{numberOfImage}</Text>
     </View>
