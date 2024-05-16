@@ -1,5 +1,5 @@
 import ImageComponent from "components/image/image.component";
-import { View, Text, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 type TAlbumMiniatureComponent = {
   albumName: string;
@@ -14,11 +14,17 @@ const AlbumMiniatureComponent = ({
 }: TAlbumMiniatureComponent) => {
   return (
     <View>
-      <ImageComponent picture={"mocks/albums/t1.jpg"} />
-      <Text>{albumName}</Text>
-      <Text>#{numberOfImage}</Text>
+      <ImageComponent picture={"mocks/albums/t1.jpg"} style={styles.image} />
+      <Text style={styles.albumName}>{albumName}</Text>
+      <Text style={styles.numberImage}>#{numberOfImage}</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  image: { borderRadius: 10 },
+  albumName: { textTransform: "capitalize", fontWeight: "bold", fontSize: 12 },
+  numberImage: { fontSize: 10 },
+});
 
 export default AlbumMiniatureComponent;
