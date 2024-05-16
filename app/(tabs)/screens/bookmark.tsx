@@ -46,7 +46,6 @@ const test = [
 ];
 
 const Bookmark = () => {
-  const onCreate = () => console.log("thomas");
   return (
     <SafeAreaView className="h-full m-auto">
       <View>
@@ -80,7 +79,6 @@ const Bookmark = () => {
             </View>
           )}
         />
-        <Link href="screens/create">Go to path</Link>
       </View>
     </SafeAreaView>
   );
