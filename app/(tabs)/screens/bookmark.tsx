@@ -1,67 +1,24 @@
-import {
-  Text,
-  FlatList,
-  View,
-  Button,
-  TouchableOpacity,
-  Pressable,
-} from "react-native";
+import { FlatList, View, Pressable } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AlbumMiniatureComponent from "components/molecules/albumMiniature/albumMiniature.component";
 import { Link, router } from "expo-router";
-
-const test = [
-  {
-    id: "0",
-  },
-  {
-    id: " 1",
-    name: "thomas",
-    mainPicture: "mocks/albums/t1.jpg",
-  },
-  {
-    id: "2",
-    name: "thomas",
-    mainPicture: "mocks/albums/t2.jpg",
-  },
-  {
-    id: "3",
-    name: "thomas",
-    mainPicture: "mocks/albums/t3.jpg",
-  },
-  {
-    id: "4",
-    name: "thomas",
-    mainPicture: "mocks/albums/t4.jpg",
-  },
-  {
-    id: "5",
-    name: "thomas",
-    mainPicture: "mocks/albums/t5.jpg",
-  },
-  {
-    id: "6",
-    name: "thomas",
-    mainPicture: "mocks/albums/t6.jpg",
-  },
-  {
-    id: "7",
-    name: "thomas",
-    mainPicture: "mocks/albums/t7.jpg",
-  },
-];
+import { albumsMock } from "mocks/albums.mock";
 
 const Bookmark = () => {
+  const albumList = [
+    { id: "0", name: "", mainPicture: "", numberOfImage: 0 },
+    ...albumsMock,
+  ];
   return (
     <SafeAreaView className="h-full m-auto">
       <View>
         <FlatList
-          data={test}
+          data={albumList}
           keyExtractor={(item) => item.id}
           numColumns={3}
           renderItem={({ index, item }) => (
-            <View className="m-3 w-24 ">
+            <View className="mx-3 my-2 w-24 ">
               {index === 0 ? (
                 <Link
                   className=" bg-gray-300 text-gray-500"
@@ -81,13 +38,13 @@ const Bookmark = () => {
                   onPress={() =>
                     router.push({
                       pathname: "/albums/[id]",
-                      params: { id: "2" },
+                      params: { id: item.id },
                     })
                   }
                 >
                   <AlbumMiniatureComponent
                     albumName={item.name}
-                    numberOfImage={10}
+                    numberOfImage={item.numberOfImage}
                     image={item.mainPicture}
                   />
                 </Pressable>
