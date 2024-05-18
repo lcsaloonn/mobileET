@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect, useState } from "react";
 import AlbumHeaderButtons from "components/molecules/albumHeaderButtons/albumHeaderButtons.component";
 import ImageComponent from "components/atoms/image/image.component";
+import { albumsMock } from "mocks/albums.mock";
 
 const create = () => {
   const categories = ["gallery", "moments", "map"] as const;
@@ -12,7 +13,7 @@ const create = () => {
   const map: { [key in Categories]: JSX.Element } = {
     gallery: (
       <FlatList
-        data={test}
+        data={albumsMock}
         keyExtractor={(item) => item.id}
         numColumns={3}
         renderItem={({ index, item }) => (

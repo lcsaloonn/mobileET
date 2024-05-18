@@ -1,4 +1,4 @@
-const albumsMock = [
+export const albumsMock = [
   {
     id: " 1",
     name: "thomas",

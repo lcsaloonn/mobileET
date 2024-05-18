@@ -3,6 +3,8 @@ import ImageComponent from "components/atoms/image/image.component";
 import { Stack, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { View, Text, FlatList } from "react-native";
+import WorkInProgressComponent from "components/atoms/workInProgress/workInProgress.componant";
+import { albumsMock } from "mocks/albums.mock";
 
 const AlbumView = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -13,7 +15,7 @@ const AlbumView = () => {
   const map: { [key in Categories]: JSX.Element } = {
     gallery: (
       <FlatList
-        data={test}
+        data={albumsMock}
         keyExtractor={(item) => item.id}
         numColumns={3}
         renderItem={({ index, item }) => (
@@ -22,32 +24,14 @@ const AlbumView = () => {
       />
     ),
 
-    moments: (
-      <Text
-        className="text-3xl font-pblack text-center  mt-28"
-        style={{
-          textAlignVertical: "center",
-        }}
-      >
-        Not Available for the moment
-      </Text>
-    ),
-    map: (
-      <Text
-        className="text-3xl font-pblack text-center mt-28"
-        style={{
-          textAlignVertical: "center",
-        }}
-      >
-        Not Available for the moment
-      </Text>
-    ),
+    moments: <WorkInProgressComponent />,
+    map: <WorkInProgressComponent />,
   };
 
   return (
     <View>
       <Stack.Screen options={{ headerTitle: id }} />
-      <View>
+      <View className="my-7 mx-5">
         <AlbumHeaderButtons
           selectedType={(name) => setSelectedTyped(name)}
           catgories={categories as [string, string, string]}
