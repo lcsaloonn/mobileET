@@ -1,8 +1,15 @@
-import { Text, FlatList, View, Button, TouchableOpacity } from "react-native";
+import {
+  Text,
+  FlatList,
+  View,
+  Button,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AlbumMiniatureComponent from "components/albumMiniature/albumMiniature.component";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const test = [
   {
@@ -70,11 +77,20 @@ const Bookmark = () => {
                   +
                 </Link>
               ) : (
-                <AlbumMiniatureComponent
-                  albumName={item.name}
-                  numberOfImage={10}
-                  image={item.mainPicture}
-                />
+                <Pressable
+                  onPress={() =>
+                    router.push({
+                      pathname: "/albums/[id]",
+                      params: { id: "2" },
+                    })
+                  }
+                >
+                  <AlbumMiniatureComponent
+                    albumName={item.name}
+                    numberOfImage={10}
+                    image={item.mainPicture}
+                  />
+                </Pressable>
               )}
             </View>
           )}
