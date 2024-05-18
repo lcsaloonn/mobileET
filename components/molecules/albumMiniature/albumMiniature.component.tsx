@@ -1,4 +1,4 @@
-import ImageComponent from "components/image/image.component";
+import ImageComponent from "components/atoms/image/image.component";
 import { View, Text, StyleSheet } from "react-native";
 
 type TAlbumMiniatureComponent = {

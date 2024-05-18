@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import AlbumMiniatureComponent from "components/albumMiniature/albumMiniature.component";
+import AlbumMiniatureComponent from "components/molecules/albumMiniature/albumMiniature.component";
 import { Link, router } from "expo-router";
 
 const test = [

@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import { icons } from "../../constants";
-import TabsComponent from "components/icon/tabsIcon/tabsIcon.component";
+import TabsComponent from "components/atoms/icon/tabsIcon/tabsIcon.component";
 
 const TabsLayout = () => {
   const tabsList = [
