@@ -10,6 +10,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.37.1",
     "@types/react": "~18.2.45",
     "@types/react-dom": "^18.3.0",
     "expo": "^51.0.2",
