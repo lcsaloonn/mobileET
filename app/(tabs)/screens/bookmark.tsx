@@ -6,11 +6,12 @@ import { Link, router } from "expo-router";
 import { albumsMock } from "mocks/albums.mock";
 import ShowLoadedComponent from "components/molecules/showLoadedComponent/showLoadedComponent";
 import { useQuery } from "@tanstack/react-query";
+import { getAllAlbum } from "api/album.api";
 
 const Bookmark = () => {
   const albumsQuery = useQuery({
     queryKey: ["albums"],
-    queryFn: () => Promise.reject(),
+    queryFn: () => getAllAlbum(),
   });
 
   const albumList = [
