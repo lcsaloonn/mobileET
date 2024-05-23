@@ -10,7 +10,7 @@ export class HttpService {
 
   private constructor() {
     this.axiosClient = axios.create({
-      baseURL: "http://localhost:3000",
+      baseURL: getBaseUrl(),
       timeout: 1000,
       headers: {
         "Content-Type": "application/json",

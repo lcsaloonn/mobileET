@@ -4,9 +4,8 @@ export const httpRoutes = {
 } as const;
 
 export const mockRoutes = {
-  ["albums"]: "albums.json",
-  ["images"]: "images.json",
-  ["profile"]: "profile.json",
+  ["getAlbums"]: "getAlbums.json",
+  ["getAlbumPictures"]: "getAlbumPictures.json",
 };
 
 export type TRoutes = (typeof httpRoutes)[keyof typeof httpRoutes];

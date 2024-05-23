@@ -16,21 +16,14 @@ const AlbumView = () => {
 
   const map: { [key in Categories]: JSX.Element } = {
     gallery: (
-      <>
-        <FlatList
-          data={albumsMock}
-          keyExtractor={(item) => item.id}
-          numColumns={3}
-          renderItem={({ index, item }) => (
-            <ImageComponent
-              picture={item.mainPicture}
-              className="mx-auto my-1"
-            />
-          )}
-        />
-
-        <Text>ttt</Text>
-      </>
+      <FlatList
+        data={albumsMock}
+        keyExtractor={(item) => item.id}
+        numColumns={3}
+        renderItem={({ index, item }) => (
+          <ImageComponent picture={item.mainPicture} className="mx-auto my-1" />
+        )}
+      />
     ),
 
     moments: <WorkInProgressComponent />,

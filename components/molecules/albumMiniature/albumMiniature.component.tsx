@@ -3,28 +3,28 @@ import { View, Text, StyleSheet } from "react-native";
 
 type TAlbumMiniatureComponent = {
   albumName: string;
-  numberOfImage: number;
-  image: string;
+  numberOfPictures: number;
+  picture: string;
 };
 
 const AlbumMiniatureComponent = ({
   albumName,
-  numberOfImage,
-  image,
+  numberOfPictures,
+  picture,
 }: TAlbumMiniatureComponent) => {
   return (
     <View>
-      <ImageComponent picture={image} style={styles.image} />
+      <ImageComponent picture={picture} style={styles.picture} />
       <Text style={styles.albumName}>{albumName}</Text>
-      <Text style={styles.numberImage}>#{numberOfImage}</Text>
+      <Text style={styles.numberpictures}>#{numberOfPictures}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  image: { borderRadius: 10 },
+  picture: { borderRadius: 10 },
   albumName: { textTransform: "capitalize", fontWeight: "bold", fontSize: 12 },
-  numberImage: { fontSize: 10 },
+  numberpictures: { fontSize: 10 },
 });
 
 export default AlbumMiniatureComponent;

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "pictures": [
+      "t4.jpg",
+      "t1.jpg",
+      "t3.jpg",
+      "t2.jpg",
+      "t5.jpg",
+      "t6.jpg",
+      "t7.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "pictures": [
+      "t4.jpg",
+      "t1.jpg",
+      "t3.jpg",
+      "t2.jpg",
+      "t5.jpg",
+      "t6.jpg",
+      "t7.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "pictures": [
+      "t4.jpg",
+      "t1.jpg",
+      "t3.jpg",
+      "t2.jpg",
+      "t5.jpg",
+      "t6.jpg",
+      "t7.jpg"
+    ]
+  }
+]

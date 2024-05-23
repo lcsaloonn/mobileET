@@ -6,7 +6,7 @@ import { Link, router } from "expo-router";
 import { albumsMock } from "mocks/albums.mock";
 import ShowLoadedComponent from "components/molecules/showLoadedComponent/showLoadedComponent";
 import { useQuery } from "@tanstack/react-query";
-import { getAllAlbum } from "api/album.api";
+import { getAllAlbum } from "api/queries/album.api";
 
 const Bookmark = () => {
   const albumsQuery = useQuery({
@@ -18,12 +18,13 @@ const Bookmark = () => {
     { id: "0", name: "", mainPicture: "", numberOfImage: 0 },
     ...albumsMock,
   ];
+
   return (
     <SafeAreaView className="h-full m-auto">
       <ShowLoadedComponent query={albumsQuery}>
         <View>
           <FlatList
-            data={albumList}
+            data={albumsQuery.data}
             keyExtractor={(item) => item.id}
             numColumns={3}
             renderItem={({ index, item }) => (
@@ -52,9 +53,9 @@ const Bookmark = () => {
                     }
                   >
                     <AlbumMiniatureComponent
-                      albumName={item.name}
-                      numberOfImage={item.numberOfImage}
-                      image={item.mainPicture}
+                      albumName={item.albumName}
+                      numberOfPictures={item.numberOfPictures}
+                      picture={item.folderUrl + item.mainPicture}
                     />
                   </Pressable>
                 )}
