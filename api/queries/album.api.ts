@@ -12,4 +12,13 @@ async function getAllAlbum(config?: AxiosRequestConfig): Promise<any[]> {
   }
 }
 
-export { getAllAlbum };
+async function getPictureByAlbumId(id: string) {
+  try {
+    const response = await HttpService.instance.get("", "getAlbumPictures");
+    return response.data;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export { getAllAlbum, getPictureByAlbumId };

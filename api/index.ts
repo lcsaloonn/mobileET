@@ -19,9 +19,9 @@ export class HttpService {
     });
   }
 
-  get(url: TRoutes, defaultMocks?: TMockRoutes, config?: AxiosRequestConfig) {
-    if (this.isMock && defaultMocks) {
-      return this.axiosClient.get(findMockRoutes(defaultMocks), config);
+  get(url: TRoutes, mockRoute?: TMockRoutes, config?: AxiosRequestConfig) {
+    if (this.isMock && mockRoute) {
+      return this.axiosClient.get(findMockRoutes(mockRoute), config);
     } else {
       return this.axiosClient.get(url, config);
     }

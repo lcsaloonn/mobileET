@@ -1,30 +1,28 @@
 import AlbumHeaderButtons from "components/molecules/albumHeaderButtons/albumHeaderButtons.component";
-import ImageComponent from "components/atoms/image/image.component";
 import { Stack, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View } from "react-native";
 import WorkInProgressComponent from "components/atoms/workInProgress/workInProgress.componant";
-import { albumsMock } from "mocks/albums.mock";
 import ButtonRoundAdd from "components/atoms/buttons/buttonRoundAdd/buttonRoundAdd.component";
+import { useQuery } from "@tanstack/react-query";
+import { getPictureByAlbumId } from "api/queries/album.api";
+import { AlbumGalleryComponent } from "components/molecules/SingleAlbum";
+
+const categories = ["gallery", "moments", "map"] as const;
+type Categories = (typeof categories)[number];
 
 const AlbumView = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const album = albumsMock.find((album) => album.id === id);
-  const categories = ["gallery", "moments", "map"] as const;
-  type Categories = (typeof categories)[number];
+
+  const albumsQuery = useQuery({
+    queryKey: ["albums"],
+    queryFn: () => getPictureByAlbumId(id),
+  });
+
   const [selectedType, setSelectedTyped] = useState<string>(categories[0]);
 
   const map: { [key in Categories]: JSX.Element } = {
-    gallery: (
-      <FlatList
-        data={albumsMock}
-        keyExtractor={(item) => item.id}
-        numColumns={3}
-        renderItem={({ index, item }) => (
-          <ImageComponent picture={item.mainPicture} className="mx-auto my-1" />
-        )}
-      />
-    ),
+    gallery: <AlbumGalleryComponent pictures={albumsQuery.data} />,
 
     moments: <WorkInProgressComponent />,
     map: <WorkInProgressComponent />,
@@ -32,7 +30,7 @@ const AlbumView = () => {
 
   return (
     <View className="h-full">
-      <Stack.Screen options={{ headerTitle: album.name }} />
+      <Stack.Screen options={{ headerTitle: albumsQuery.data.name }} />
       <View className="my-7 mx-5 h-full ">
         <AlbumHeaderButtons
           selectedType={(name) => setSelectedTyped(name)}

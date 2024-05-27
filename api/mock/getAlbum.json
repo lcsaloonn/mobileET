@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "albumName": "Italie 2024",
+  "albumType": "album",
+  "folderUrl": "mocks/albums/",
+  "creationDate": "22/05/2024",
+  "likes": 104,
+  "views": 203,
+  "numberOfPictures": 20,
+  "description": "Best holiday ever",
+  "creator": "Thomas E",
+  "mainPicture": "t4.jpg",
+  "access": ["private"]
+}
