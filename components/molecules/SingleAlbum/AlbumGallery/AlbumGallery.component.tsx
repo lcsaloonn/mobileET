@@ -3,9 +3,13 @@ import { FlatList } from "react-native";
 
 type TPictureGalleryComponent = {
   pictures: string[];
+  folder: string;
 };
 
-const AlbumGalleryComponent = ({ pictures }: TPictureGalleryComponent) => {
+const AlbumGalleryComponent = ({
+  pictures,
+  folder,
+}: TPictureGalleryComponent) => {
   const data = pictures.map((picture, index) => ({
     id: index.toString(),
     picture,
@@ -17,7 +21,11 @@ const AlbumGalleryComponent = ({ pictures }: TPictureGalleryComponent) => {
       keyExtractor={(item) => item.id}
       numColumns={3}
       renderItem={({ index, item }) => (
-        <ImageComponent picture={item.picture} className="mx-auto my-1" />
+        <ImageComponent
+          picture={item.picture}
+          pictureFolder={folder}
+          className="mx-auto my-1"
+        />
       )}
     />
   );
