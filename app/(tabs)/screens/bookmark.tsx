@@ -1,11 +1,11 @@
 import { FlatList, View, Pressable } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import AlbumMiniatureComponent from "components/molecules/albumMiniature/albumMiniature.component";
 import { Link, router } from "expo-router";
-import ShowLoadedComponent from "components/molecules/showLoadedComponent/showLoadedComponent";
 import { useQuery } from "@tanstack/react-query";
-import { getAllAlbum } from "api/queries/album.api";
+import { getAllAlbum } from "src/api/queries/album.api";
+import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
+import AlbumMiniatureComponent from "src/components/molecules/albumMiniature/albumMiniature.component";
 
 const Bookmark = () => {
   const albumsQuery = useQuery({
@@ -13,6 +13,7 @@ const Bookmark = () => {
     queryFn: () => getAllAlbum(),
   });
 
+  console.log(albumsQuery.data);
   return (
     <SafeAreaView className="h-full m-auto">
       <ShowLoadedComponent query={albumsQuery}>

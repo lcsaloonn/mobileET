@@ -1,5 +1,5 @@
-import ImageComponent from "components/atoms/image/image.component";
 import { FlatList } from "react-native";
+import ImageComponent from "src/components/atoms/image/image.component";
 
 type TPictureGalleryComponent = {
   pictures: string[];

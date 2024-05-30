@@ -1,8 +1,7 @@
 import { View, Text, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect, useState } from "react";
-import AlbumHeaderButtons from "components/molecules/albumHeaderButtons/albumHeaderButtons.component";
-import ImageComponent from "components/atoms/image/image.component";
+import AlbumHeaderButtons from "src/components/molecules/albumHeaderButtons/albumHeaderButtons.component";
 
 const create = () => {
   const categories = ["gallery", "moments", "map"] as const;

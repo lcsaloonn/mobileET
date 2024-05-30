@@ -1,13 +1,14 @@
-import AlbumHeaderButtons from "components/molecules/albumHeaderButtons/albumHeaderButtons.component";
-import { Stack, useLocalSearchParams } from "expo-router";
-import React, { useState } from "react";
-import { View } from "react-native";
-import WorkInProgressComponent from "components/atoms/workInProgress/workInProgress.componant";
-import ButtonRoundAdd from "components/atoms/buttons/buttonRoundAdd/buttonRoundAdd.component";
 import { useQuery } from "@tanstack/react-query";
-import { getAllAlbum, getPictureByAlbumId } from "api/queries/album.api";
-import { AlbumGalleryComponent } from "components/molecules/SingleAlbum";
-import ShowLoadedComponent from "components/molecules/showLoadedComponent/showLoadedComponent";
+
+import { Stack, useLocalSearchParams } from "expo-router";
+import { useState } from "react";
+import { View } from "react-native";
+import { getPictureByAlbumId } from "src/api/queries/album.api";
+import ButtonRoundAdd from "src/components/atoms/buttons/buttonRoundAdd/buttonRoundAdd.component";
+import WorkInProgressComponent from "src/components/atoms/workInProgress/workInProgress.componant";
+import { AlbumGalleryComponent } from "src/components/molecules/SingleAlbum";
+import AlbumHeaderButtons from "src/components/molecules/albumHeaderButtons/albumHeaderButtons.component";
+import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
 
 const categories = ["gallery", "moments", "map"] as const;
 type Categories = (typeof categories)[number];

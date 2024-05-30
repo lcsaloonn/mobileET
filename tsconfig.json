@@ -8,6 +8,6 @@
     "**/*.tsx",
     "constants/icons.js",
     "app.d.ts",
-    "components/**/*.tsx"
+    "./src/**/*.tsx"
   ]
 }
