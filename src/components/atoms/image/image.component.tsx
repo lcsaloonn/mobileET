@@ -7,6 +7,10 @@ type TImageComponent = {
   style?: ImageStyle;
   className?: string;
 };
+type TImage = {
+  imageUrl: string;
+  folderPath?: string;
+};
 
 const ImageComponent = ({
   picture,
@@ -29,3 +33,4 @@ const styles = StyleSheet.create({
 });
 
 export default ImageComponent;
+export { TImage };

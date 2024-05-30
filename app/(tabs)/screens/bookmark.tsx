@@ -13,7 +13,6 @@ const Bookmark = () => {
     queryFn: () => getAllAlbum(),
   });
 
-  console.log(albumsQuery.data);
   return (
     <SafeAreaView className="h-full m-auto">
       <ShowLoadedComponent query={albumsQuery}>

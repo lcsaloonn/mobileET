@@ -8,7 +8,7 @@ async function getAllAlbum(config?: AxiosRequestConfig): Promise<any[]> {
     });
     return response.data;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
 
@@ -17,7 +17,7 @@ async function getPictureByAlbumId(id: string) {
     const response = await HttpService.instance.get("", "getAlbumPictures");
     return response.data;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
 

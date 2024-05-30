@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "id": "1",
+      "name": "thomas",
+      "picture": "mocks/albums/t4.jpg"
+    },
+    "pcitures": ["t4.jpg", "t4.jpg", "t4.jpg", "t4.jpg"],
+    "folderUrl": "mocks/albums/"
+  }
+]

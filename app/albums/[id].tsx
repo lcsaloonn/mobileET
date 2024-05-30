@@ -22,8 +22,6 @@ const AlbumView = () => {
     queryFn: () => getPictureByAlbumId(id),
   });
 
-  console.log(pictureQuery.data);
-
   const component: { [key in Categories]: JSX.Element } = {
     gallery: pictureQuery.isSuccess ? (
       <AlbumGalleryComponent
