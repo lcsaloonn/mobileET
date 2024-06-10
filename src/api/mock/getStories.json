@@ -1,0 +1,15 @@
+[
+  {
+    "id": "1",
+    "user": {
+      "id": "1",
+      "name": "thomas",
+      "picture": "mocks/albums/t4.jpg"
+    },
+    "stories": [
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
+    ]
+  }
+]

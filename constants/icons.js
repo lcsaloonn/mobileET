@@ -11,6 +11,10 @@ import logout from "../assets/icons/logout.png";
 import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
+import playVideo from "../assets/icons/playvideo.png";
+import mute from "../assets/icons/muted.png";
+import pause from "../assets/icons/pause.png";
+import sound from "../assets/icons/sound.png";
 
 export default {
   play,
@@ -26,4 +30,8 @@ export default {
   logout,
   eyeHide,
   eye,
+  playVideo,
+  mute,
+  pause,
+  sound,
 };

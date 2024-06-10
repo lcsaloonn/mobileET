@@ -8,7 +8,7 @@ export const mockRoutes = {
   ["getAlbums"]: "getAlbums.json",
   ["getAlbumPictures"]: "getAlbumPictures.json",
   ["getAlbum"]: "getAlbum.json",
-  ["stories"]: "stories.json",
+  ["getStories"]: "getStories.json",
 };
 
 export type TRoutes = (typeof httpRoutes)[keyof typeof httpRoutes];
