@@ -37,8 +37,6 @@ const StorieComponent = ({ onFinishStory, stories }: TStorieComponent) => {
     onFinishStory,
     setIsPause
   );
-  console.log("---------------");
-  console.log(stories); // toDo Delete
 
   const handleScreenTouch = (evt: GestureResponderEvent) => {
     const touchX = evt.nativeEvent.locationX;
