@@ -37,7 +37,7 @@ const StoryComponentTest: React.FC<StoryProp> = ({
     //   process.env.EXPO_PUBLIC_LOCAL_IMAGE_BASE_URI +
     //   story.folderUrl +
     //   story.story;
-    console.log(story.type);
+    // console.log(story.type);
     switch (story.type) {
       case "picture":
         return <Text style={styles.backgroundImage}>{"thomas"}</Text>;

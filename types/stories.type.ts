@@ -2,7 +2,7 @@ export type TStories = TBaseStory[];
 
 type TBaseStory = {
   id: string;
-  user: { id: string; name: string; picture: string };
+  user: { id: string; name: string; surname: string; picture: string };
   stories: TStory[];
 };
 

@@ -4,7 +4,64 @@
     "user": {
       "id": "1",
       "name": "thomas",
+      "surname": "enticott",
       "picture": "mocks/albums/t4.jpg"
+    },
+    "stories": [
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
+    ]
+  },
+  {
+    "id": "2",
+    "user": {
+      "id": "2",
+      "name": "sarah",
+      "surname": "poitou",
+      "picture": "mocks/albums/t2.jpg"
+    },
+    "stories": [
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
+    ]
+  },
+  {
+    "id": "3",
+    "user": {
+      "id": "2",
+      "name": "jean",
+      "surname": "dujardin",
+      "picture": "mocks/albums/t3.jpg"
+    },
+    "stories": [
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
+    ]
+  },
+  {
+    "id": "3",
+    "user": {
+      "id": "2",
+      "name": "jean",
+      "surname": "dujardin",
+      "picture": "mocks/albums/t7.jpg"
+    },
+    "stories": [
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
+    ]
+  },
+  {
+    "id": "3",
+    "user": {
+      "id": "2",
+      "name": "jean",
+      "surname": "dujardin",
+      "picture": "mocks/albums/t6.jpg"
     },
     "stories": [
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },

@@ -10,7 +10,7 @@ type TModal = ModalProps & {
   isOpen: boolean;
   withInput?: boolean;
 };
-const Modal = ({ isOpen, withInput, children, ...rest }: TModal) => {
+const ModalComponent = ({ isOpen, withInput, children, ...rest }: TModal) => {
   const content = withInput ? (
     <KeyboardAvoidingView
       className="item-center justify-center flex-1 px-3 bg-zinc-900/40"
@@ -36,4 +36,4 @@ const Modal = ({ isOpen, withInput, children, ...rest }: TModal) => {
   );
 };
 
-export default Modal;
+export default ModalComponent;

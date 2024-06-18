@@ -6,6 +6,7 @@ type TImageComponent = {
   pictureFolder?: string;
   style?: ImageStyle;
   className?: string;
+  defaultStyle?: boolean;
 };
 type TImage = {
   imageUrl: string;
@@ -17,16 +18,15 @@ const ImageComponent = ({
   pictureFolder,
   style,
   className,
+  defaultStyle = true,
 }: TImageComponent) => {
-  console.log("1---");
-  console.log(getImageRoute(picture, pictureFolder));
   return (
     <Image
       source={{
         uri: getImageRoute(picture, pictureFolder),
       }}
-      style={[styles.image, style]}
-      className={className}
+      style={[style, defaultStyle && styles.image]}
+      className={"rounded-full"}
     />
   );
 };

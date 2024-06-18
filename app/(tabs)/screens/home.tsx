@@ -1,17 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { View, FlatList, Image, Text } from "react-native";
+import { View, FlatList, Image, Text, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getStories } from "src/api/queries/stories.api";
 import ImageComponent from "src/components/atoms/image/image.component";
 import { StoriesProfileCompoent } from "src/components/molecules/albumStories";
 import StorieComponent from "src/components/molecules/albumStories/storie/storie.component";
 import StoryComponentTest from "src/components/molecules/albumStories/storie/test";
+import ModalComponent from "src/components/atoms/modal/modal.component";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
+import SingleAlbumPictureComponent from "src/components/molecules/albums/SingleAlbumPicture/singleAlbumPicture.component";
+import StoriesContainer from "src/components/molecules/home/storiesBar/story.container";
 
 const Home = () => {
   const [insideStory, setInsideStory] = useState(false);
-
+  const [isModalOpen, setModalOpen] = useState(false);
   const storiesQuery = useQuery({
     queryKey: ["stories"],
     queryFn: () => getStories(),
@@ -20,7 +23,8 @@ const Home = () => {
   return (
     <SafeAreaView>
       <ShowLoadedComponent query={storiesQuery}>
-        <View>
+        <StoriesContainer stories={storiesQuery.data} />
+        {/* <View>
           {insideStory ? (
             <StoryComponentTest
               onFinishStory={() => setInsideStory(false)}
@@ -43,12 +47,18 @@ const Home = () => {
                   />
                 )}
               />
-              <ImageComponent picture={"mocks/albums/t4.jpg"} />
-              <Text>{"thomas"}</Text>
             </View>
           )}
-        </View>
+        </View> */}
       </ShowLoadedComponent>
+      {/* <Button title="modal" onPress={() => setModalOpen(true)} />
+      <ModalComponent isOpen={isModalOpen}>
+        <SingleAlbumPictureComponent
+          closeModal={() => setModalOpen(false)}
+          pictures={[]}
+          albumBaseUrl={""}
+        />
+      </ModalComponent> */}
     </SafeAreaView>
   );
 };
