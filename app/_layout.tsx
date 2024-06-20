@@ -32,7 +32,7 @@ const RootLayout = () => {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="albums/[id]" />
-        <Stack.Screen name="story" />
+        <Stack.Screen name="story" options={{ headerShown: false }} />
       </Stack>
     </QueryClientProvider>
   );

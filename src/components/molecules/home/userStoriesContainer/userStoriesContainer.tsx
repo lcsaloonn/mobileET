@@ -7,7 +7,7 @@ type TStoriesContainer = {
   stories: TStories;
 };
 
-const StoriesContainer = ({ stories }: TStoriesContainer) => {
+const UsersStoriesContainer = ({ stories }: TStoriesContainer) => {
   const navigation = router;
   return (
     <ScrollView
@@ -19,7 +19,7 @@ const StoriesContainer = ({ stories }: TStoriesContainer) => {
         <StoryComponent
           key={i}
           displayName={toDisplayNameFormat(e.user.name, e.user.surname)}
-          onClick={() => router.push("index")}
+          onClick={() => router.push("story")}
           isDefault={i === 0}
           image={{
             imageUrl: e.user.picture,
@@ -29,4 +29,4 @@ const StoriesContainer = ({ stories }: TStoriesContainer) => {
     </ScrollView>
   );
 };
-export default StoriesContainer;
+export default UsersStoriesContainer;

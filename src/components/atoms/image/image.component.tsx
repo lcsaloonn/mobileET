@@ -26,7 +26,6 @@ const ImageComponent = ({
         uri: getImageRoute(picture, pictureFolder),
       }}
       style={[style, defaultStyle && styles.image]}
-      className={"rounded-full"}
     />
   );
 };

@@ -9,8 +9,7 @@ import StorieComponent from "src/components/molecules/albumStories/storie/storie
 import StoryComponentTest from "src/components/molecules/albumStories/storie/test";
 import ModalComponent from "src/components/atoms/modal/modal.component";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
-import SingleAlbumPictureComponent from "src/components/molecules/albums/SingleAlbumPicture/singleAlbumPicture.component";
-import StoriesContainer from "src/components/molecules/home/storiesBar/story.container";
+import UsersStoriesContainer from "src/components/molecules/home/userStoriesContainer/userStoriesContainer";
 
 const Home = () => {
   const [insideStory, setInsideStory] = useState(false);
@@ -23,7 +22,7 @@ const Home = () => {
   return (
     <SafeAreaView>
       <ShowLoadedComponent query={storiesQuery}>
-        <StoriesContainer stories={storiesQuery.data} />
+        <UsersStoriesContainer stories={storiesQuery.data} />
         {/* <View>
           {insideStory ? (
             <StoryComponentTest
