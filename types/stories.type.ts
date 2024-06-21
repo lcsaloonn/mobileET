@@ -1,6 +1,4 @@
-export type TStories = TBaseStory[];
-
-type TBaseStory = {
+export type TBaseStory = {
   id: string;
   user: { id: string; name: string; surname: string; picture: string };
   stories: TStory[];

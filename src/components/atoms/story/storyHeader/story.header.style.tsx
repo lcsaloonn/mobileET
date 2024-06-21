@@ -40,7 +40,7 @@ const storyHeaderStyles = StyleSheet.create({
   },
   name: {
     color: "white",
-    fontSize: 15,
+    fontSize: 14,
     paddingLeft: 10,
     textTransform: "capitalize",
   },

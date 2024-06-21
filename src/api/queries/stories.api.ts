@@ -1,8 +1,7 @@
-import { TStories } from "types/stories.type";
+import { TBaseStory } from "types/stories.type";
 import { HttpService } from "..";
-import { AxiosResponse } from "axios";
 
-async function getStories() {
+async function getStories(): Promise<TBaseStory[]> {
   try {
     const response = await HttpService.instance.get("", "getStories");
     return await response.data;

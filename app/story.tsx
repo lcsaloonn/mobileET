@@ -1,9 +1,10 @@
 import { StatusBar, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ImageComponent from "src/components/atoms/image/image.component";
-import StoryFooter from "src/components/molecules/story/storyFooter/story.footer";
-import StoryHeader from "src/components/molecules/story/storyHeader/story.header";
+import { StoryFooter, StoryHeader } from "src/components/atoms/story/z-index";
 import { toDisplayNameFormat } from "src/helpers/text/format";
+
+// param id with id get the corresponding story, zustang can be use to get them
 
 const StoryView = () => {
   return (

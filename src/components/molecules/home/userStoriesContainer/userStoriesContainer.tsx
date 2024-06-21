@@ -2,9 +2,10 @@ import { router } from "expo-router";
 import { ScrollView } from "react-native";
 import StoryComponent from "src/components/atoms/storyComponent/story.component";
 import { toDisplayNameFormat } from "src/helpers/text/format";
-import { TStories } from "types/stories.type";
+import { TBaseStory } from "types/stories.type";
+
 type TStoriesContainer = {
-  stories: TStories;
+  stories: TBaseStory[];
 };
 
 const UsersStoriesContainer = ({ stories }: TStoriesContainer) => {
@@ -19,7 +20,7 @@ const UsersStoriesContainer = ({ stories }: TStoriesContainer) => {
         <StoryComponent
           key={i}
           displayName={toDisplayNameFormat(e.user.name, e.user.surname)}
-          onClick={() => router.push("story")}
+          onClick={() => router.push("story")} // add index as param
           isDefault={i === 0}
           image={{
             imageUrl: e.user.picture,
