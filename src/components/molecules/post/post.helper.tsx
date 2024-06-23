@@ -9,6 +9,6 @@ export function findContentComponent(content: PostConent) {
         pictureFolder={content.folderPath}
       />
     ),
-    text: content.type === "text" && <PostTextContent />,
+    text: content.type === "text" && <PostTextContent text={content.text} />,
   }[content.type];
 }
