@@ -7,9 +7,10 @@ import { router } from "expo-router";
 type TStoryHeader = {
   displayName: string;
   userImg: string;
+  onFinishStory: () => void;
 };
 
-const StoryHeader = ({ displayName, userImg }: TStoryHeader) => {
+const StoryHeader = ({ displayName, userImg, onFinishStory }: TStoryHeader) => {
   return (
     <>
       {/* story time bar */}
@@ -26,7 +27,7 @@ const StoryHeader = ({ displayName, userImg }: TStoryHeader) => {
         </View>
         <View style={storyHeaderStyles.infoContainer}>
           <Text style={storyHeaderStyles.name}>{displayName}</Text>
-          <TouchableOpacity onPress={() => router.back()}>
+          <TouchableOpacity onPress={onFinishStory}>
             <Ionic name="close" style={storyHeaderStyles.closeBtn} />
           </TouchableOpacity>
         </View>
