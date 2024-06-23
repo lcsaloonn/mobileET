@@ -16,5 +16,23 @@
     },
     "likes": 120,
     "isLiked": false
+  },
+  {
+    "id": "2",
+    "user": {
+      "id": "1",
+      "name": "thomas",
+      "surname": "enticott",
+      "picture": "mocks/albums/t4.jpg"
+    },
+    "title": "Voyage Amérique",
+    "type": "picture",
+    "data": {
+      "baseImg": "moto.jpg",
+      "folderPath": "mocks/albums/",
+      "type": "picture"
+    },
+    "likes": 120,
+    "isLiked": false
   }
 ]

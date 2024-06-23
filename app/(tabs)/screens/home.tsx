@@ -4,6 +4,7 @@ import UsersStoriesContainer from "src/components/molecules/home/userStoriesCont
 import { useStory } from "src/api/stacks/useStories";
 import PostsContainer from "src/components/molecules/home/postsContainer/posts.container";
 import { useLatestPosts } from "src/api/stacks/usePosts";
+import { ScrollView } from "react-native";
 
 const Home = () => {
   const sotryQuery = useStory();
@@ -15,8 +16,10 @@ const Home = () => {
         isError={sotryQuery.isError && latestPostQuery.isError}
         isSuccess={sotryQuery.isSuccess && latestPostQuery.isSuccess}
       >
-        <UsersStoriesContainer stories={sotryQuery.data} />
-        <PostsContainer posts={latestPostQuery.data} />
+        <ScrollView>
+          <UsersStoriesContainer stories={sotryQuery.data} />
+          <PostsContainer posts={latestPostQuery.data} />
+        </ScrollView>
       </ShowLoadedComponent>
     </SafeAreaView>
   );
