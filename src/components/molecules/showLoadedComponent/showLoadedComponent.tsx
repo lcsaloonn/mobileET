@@ -4,23 +4,27 @@ import ErrorMessageComponent from "../ErrorMessage/errorMessage";
 import { PropsWithChildren } from "react";
 
 type TShowLoadedComponent = {
-  query: UseQueryResult;
+  isLoading: boolean;
+  isError: boolean;
+  isSuccess: boolean;
 };
 
 const ShowLoadedComponent = ({
   children,
-  query,
+  isError,
+  isLoading,
+  isSuccess,
 }: PropsWithChildren<TShowLoadedComponent>) => {
   return (
     <>
-      {query.isLoading && (
+      {isLoading && (
         <ActivityIndicator
           size={"large"}
           className="justify-center align-middle"
         />
       )}
-      {query.isError && <ErrorMessageComponent />}
-      {query.isSuccess && children}
+      {isError && <ErrorMessageComponent />}
+      {isSuccess && children}
     </>
   );
 };

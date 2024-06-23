@@ -8,7 +8,7 @@
       "picture": "mocks/albums/t4.jpg"
     },
     "stories": [
-      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t5.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
     ]
@@ -36,13 +36,13 @@
       "picture": "mocks/albums/t3.jpg"
     },
     "stories": [
-      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t7.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
     ]
   },
   {
-    "id": "3",
+    "id": "4",
     "user": {
       "id": "2",
       "name": "jean",
@@ -50,13 +50,13 @@
       "picture": "mocks/albums/t7.jpg"
     },
     "stories": [
-      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "moto.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
     ]
   },
   {
-    "id": "3",
+    "id": "5",
     "user": {
       "id": "2",
       "name": "jean",
@@ -64,7 +64,7 @@
       "picture": "mocks/albums/t6.jpg"
     },
     "stories": [
-      { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
+      { "story": "t3.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" },
       { "story": "t4.jpg", "folderUrl": "mocks/albums/", "type": "picture" }
     ]

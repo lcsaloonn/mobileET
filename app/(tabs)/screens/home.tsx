@@ -1,19 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { getStories } from "src/api/queries/stories.api";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
 import UsersStoriesContainer from "src/components/molecules/home/userStoriesContainer/userStoriesContainer";
+import { useStory } from "src/api/stacks/useStories";
 
 const Home = () => {
-  const storiesQuery = useQuery({
-    queryKey: ["stories"],
-    queryFn: () => getStories(),
-  });
+  const { data, isError, isSuccess, isLoading } = useStory();
 
   return (
     <SafeAreaView>
-      <ShowLoadedComponent query={storiesQuery}>
-        <UsersStoriesContainer stories={storiesQuery.data} />
+      <ShowLoadedComponent
+        isLoading={isLoading}
+        isError={isError}
+        isSuccess={isSuccess}
+      >
+        <UsersStoriesContainer stories={data} />
       </ShowLoadedComponent>
     </SafeAreaView>
   );
