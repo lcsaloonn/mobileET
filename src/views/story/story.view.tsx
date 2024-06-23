@@ -42,10 +42,8 @@ const StoryView = ({ storyId, onFinishStory }: TStoryView) => {
     const touchX = evt.nativeEvent.locationX;
     if (touchX < width / 2) {
       goToPreviousStory();
-      console.log("previous");
     } else {
       goToNextStory();
-      console.log("next");
     }
   };
 
@@ -56,7 +54,7 @@ const StoryView = ({ storyId, onFinishStory }: TStoryView) => {
         <Pressable onPress={handleScreenTouch}>
           <View style={styles.container}>
             <StoryHeader
-              displayName={toDisplayNameFormat(user.surname, user.name)}
+              displayName={toDisplayNameFormat(user.name, user.surname)}
               userImg={user.picture}
               onFinishStory={onFinishStory}
             />
