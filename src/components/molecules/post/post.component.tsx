@@ -22,7 +22,7 @@ const PostComponent = ({ user, data }: TPostComponent) => {
         picture={data.baseImg}
         pictureFolder={data.folderPath}
       />
-      <PostActions likes={0} isLisked={false} />
+      <PostActions likes={120} isLisked={false} />
     </View>
   );
 };
