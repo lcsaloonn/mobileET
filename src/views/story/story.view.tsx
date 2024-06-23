@@ -22,20 +22,18 @@ type TStoryView = {
 const StoryView = ({ storyId, onFinishStory }: TStoryView) => {
   const { data } = useStory();
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
-  const [wentBack, setWentBack] = useState(0);
   const { user, stories } = findUserStories(storyId, data);
   const { width } = Dimensions.get("window");
   const currentStory = stories[currentStoryIndex];
   const progressBarAnnimation = useRef(new Animated.Value(0)).current;
   const pauseProgress = useRef(0);
 
-  const [goToNextStory] = handleStory(
+  const [goToNextStory, goToPreviousStory] = handleStory(
     currentStoryIndex,
     stories.length,
     progressBarAnnimation,
     pauseProgress,
     setCurrentStoryIndex,
-    setWentBack,
     onFinishStory
   );
 
@@ -43,11 +41,11 @@ const StoryView = ({ storyId, onFinishStory }: TStoryView) => {
   const handleScreenTouch = (evt: GestureResponderEvent) => {
     const touchX = evt.nativeEvent.locationX;
     if (touchX < width / 2) {
-      //goToPreviousStory();
-      console.log("gauche");
+      goToPreviousStory();
+      console.log("previous");
     } else {
       goToNextStory();
-      console.log("droite");
+      console.log("next");
     }
   };
 

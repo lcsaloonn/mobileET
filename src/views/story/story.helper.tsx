@@ -12,7 +12,6 @@ export function handleStory(
   progressAnim: Animated.Value,
   pauseProgress: MutableRefObject<number>,
   setCurrentStoryIndex: Dispatch<React.SetStateAction<number>>,
-  setWentBack: Dispatch<React.SetStateAction<number>>,
   onFinishStory: () => void
 ) {
   const goToNextStory = () => {
@@ -27,10 +26,22 @@ export function handleStory(
         progressAnim.setValue(0);
       });
     } else {
-      setWentBack(0);
       setCurrentStoryIndex(0);
       onFinishStory();
     }
   };
-  return [goToNextStory];
+
+  const goToPreviousStory = () => {
+    // if (isPause) {
+    //   setIsPause(false);
+    // }
+    pauseProgress.current = 0;
+    progressAnim.setValue(0);
+    if (currentStoryIndex !== 0) {
+      setCurrentStoryIndex((prev) => prev - 1);
+    } else {
+      //runProgressAnimation();
+    }
+  };
+  return [goToNextStory, goToPreviousStory];
 }
