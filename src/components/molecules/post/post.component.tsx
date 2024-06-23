@@ -1,10 +1,16 @@
-import { TouchableOpacity, View } from "react-native";
-import { TPost } from "types/post.type";
-import { PostActions, PostHeader, PostPictureContent } from "./atoms/z-index";
+import { View } from "react-native";
+import { TPost, TPostType } from "types/post.type";
+import {
+  PostActions,
+  PostHeader,
+  PostPictureContent,
+  PostTextContent,
+} from "./atoms/z-index";
+import { findContentComponent } from "./post.helper";
 
 type TPostComponent = TPost;
 
-const PostComponent = ({ user, data, isLiked, likes }: TPostComponent) => {
+const PostComponent = ({ user, content, isLiked, likes }: TPostComponent) => {
   return (
     <View
       style={{
@@ -18,10 +24,7 @@ const PostComponent = ({ user, data, isLiked, likes }: TPostComponent) => {
         surname={user.surname}
         userPicture={user.picture}
       />
-      <PostPictureContent
-        picture={data.baseImg}
-        pictureFolder={data.folderPath}
-      />
+      {findContentComponent(content)}
       <PostActions likes={likes} isLisked={isLiked} />
     </View>
   );

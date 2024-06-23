@@ -4,12 +4,19 @@ export type TPost = {
   id: TId;
   user: TUser;
   title: string; // post or picture name
-  type: "picture" | "text";
-  data: {
-    baseImg: string;
-    folderPath: string;
-    type: string;
-  };
+  content: PostConent;
   likes: number;
   isLiked: boolean;
 };
+
+export type TPostType = "picture" | "text";
+
+type TPictureContent = {
+  type: "picture";
+  baseImg: string;
+  folderPath: string;
+};
+
+type TTextContent = { text: string; type: "text" };
+
+export type PostConent = TTextContent | TPictureContent;
