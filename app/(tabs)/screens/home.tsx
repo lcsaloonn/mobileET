@@ -2,18 +2,21 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
 import UsersStoriesContainer from "src/components/molecules/home/userStoriesContainer/userStoriesContainer";
 import { useStory } from "src/api/stacks/useStories";
+import PostsContainer from "src/components/molecules/home/postsContainer/posts.container";
+import { useLatestPosts } from "src/api/stacks/usePosts";
 
 const Home = () => {
-  const { data, isError, isSuccess, isLoading } = useStory();
-
+  const sotryQuery = useStory();
+  const latestPostQuery = useLatestPosts();
   return (
     <SafeAreaView>
       <ShowLoadedComponent
-        isLoading={isLoading}
-        isError={isError}
-        isSuccess={isSuccess}
+        isLoading={sotryQuery.isLoading && latestPostQuery.isLoading}
+        isError={sotryQuery.isError && latestPostQuery.isError}
+        isSuccess={sotryQuery.isSuccess && latestPostQuery.isSuccess}
       >
-        <UsersStoriesContainer stories={data} />
+        <UsersStoriesContainer stories={sotryQuery.data} />
+        <PostsContainer posts={latestPostQuery.data} />
       </ShowLoadedComponent>
     </SafeAreaView>
   );
