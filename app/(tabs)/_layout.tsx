@@ -1,25 +1,26 @@
 import React from "react";
 import { Tabs } from "expo-router";
-import { icons } from "../../constants";
-import TabsComponent from "src/components/atoms/icon/tabsIcon/tabsIcon.component";
+import { StyleSheet } from "react-native";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Octicons from "react-native-vector-icons/Octicons";
 
 const TabsLayout = () => {
-  // const tabsList = [
-  //   { name: "home", icon: icons.home, },
-  //   { name: "bookmark", icon: icons.bookmark },
-  //   { name: "create", icon: icons.plus },
-  //   { name: "profile", icon: icons.profile },
-  // ];
-
   const tabsList = [
-    { name: "home", icon: <SimpleLineIcons name="home" /> },
-    { name: "search", icon: <AntDesign name="search1" /> },
-    { name: "create", icon: <Octicons name="diff-added" /> },
-    { name: "albums", icon: <AntDesign name="picture" /> },
-    { name: "settings", icon: <SimpleLineIcons name="settings" /> },
+    {
+      name: "home",
+      icon: <SimpleLineIcons name="home" style={styles.icons} />,
+    },
+    { name: "search", icon: <AntDesign name="search1" style={styles.icons} /> },
+    {
+      name: "create",
+      icon: <Octicons name="diff-added" style={styles.icons} />,
+    },
+    { name: "albums", icon: <AntDesign name="picture" style={styles.icons} /> },
+    {
+      name: "settings",
+      icon: <SimpleLineIcons name="settings" style={styles.icons} />,
+    },
   ];
 
   return (
@@ -33,7 +34,7 @@ const TabsLayout = () => {
             backgroundColor: "white",
             borderTopWidth: 1,
             borderTopColor: "#232533",
-            height: 45,
+            height: 50,
           },
         }}
       >
@@ -52,5 +53,10 @@ const TabsLayout = () => {
     </>
   );
 };
+const styles = StyleSheet.create({
+  icons: {
+    fontSize: 20,
+  },
+});
 
 export default TabsLayout;
