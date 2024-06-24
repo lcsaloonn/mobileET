@@ -5,12 +5,15 @@ import { useStory } from "src/api/stacks/useStories";
 import PostsContainer from "src/components/molecules/home/postsContainer/posts.container";
 import { useLatestPosts } from "src/api/stacks/usePosts";
 import { ScrollView } from "react-native";
+import HeaderComponent from "src/components/molecules/header/header.component";
 
 const Home = () => {
   const sotryQuery = useStory();
   const latestPostQuery = useLatestPosts();
   return (
     <SafeAreaView>
+      {/* to be move */}
+      <HeaderComponent />
       <ShowLoadedComponent
         isLoading={sotryQuery.isLoading && latestPostQuery.isLoading}
         isError={sotryQuery.isError && latestPostQuery.isError}

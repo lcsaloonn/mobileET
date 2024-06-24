@@ -2,13 +2,24 @@ import React from "react";
 import { Tabs } from "expo-router";
 import { icons } from "../../constants";
 import TabsComponent from "src/components/atoms/icon/tabsIcon/tabsIcon.component";
+import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
+import AntDesign from "react-native-vector-icons/AntDesign";
+import Octicons from "react-native-vector-icons/Octicons";
 
 const TabsLayout = () => {
+  // const tabsList = [
+  //   { name: "home", icon: icons.home, },
+  //   { name: "bookmark", icon: icons.bookmark },
+  //   { name: "create", icon: icons.plus },
+  //   { name: "profile", icon: icons.profile },
+  // ];
+
   const tabsList = [
-    { name: "home", icon: icons.home },
-    { name: "bookmark", icon: icons.bookmark },
-    { name: "create", icon: icons.plus },
-    { name: "profile", icon: icons.profile },
+    { name: "home", icon: <SimpleLineIcons name="home" /> },
+    { name: "search", icon: <AntDesign name="search1" /> },
+    { name: "create", icon: <Octicons name="diff-added" /> },
+    { name: "albums", icon: <AntDesign name="picture" /> },
+    { name: "settings", icon: <SimpleLineIcons name="settings" /> },
   ];
 
   return (
@@ -16,13 +27,13 @@ const TabsLayout = () => {
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor: "#FFA001",
-          tabBarInactiveTintColor: "#CDCDE0",
+          tabBarActiveTintColor: "red",
+          tabBarInactiveTintColor: "black",
           tabBarStyle: {
-            backgroundColor: "#161622",
+            backgroundColor: "white",
             borderTopWidth: 1,
             borderTopColor: "#232533",
-            height: 84,
+            height: 45,
           },
         }}
       >
@@ -33,14 +44,7 @@ const TabsLayout = () => {
             options={{
               title: e.name,
               headerShown: false,
-              tabBarIcon: ({ color, focused }) => (
-                <TabsComponent
-                  icon={e.icon}
-                  color={color}
-                  name={e.name}
-                  focus={focused}
-                />
-              ),
+              tabBarIcon: ({ color, focused }) => e.icon,
             }}
           />
         ))}

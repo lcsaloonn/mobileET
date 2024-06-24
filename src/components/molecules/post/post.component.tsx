@@ -1,11 +1,6 @@
 import { View } from "react-native";
-import { TPost, TPostType } from "types/post.type";
-import {
-  PostActions,
-  PostHeader,
-  PostPictureContent,
-  PostTextContent,
-} from "./atoms/z-index";
+import { TPost } from "types/post.type";
+import { PostActions, PostHeader } from "./atoms/z-index";
 import { findContentComponent } from "./post.helper";
 
 type TPostComponent = TPost;
