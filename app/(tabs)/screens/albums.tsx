@@ -12,7 +12,9 @@ const AlbumsStack = () => {
   return (
     <SafeAreaView>
       <HeaderComponent />
-      <AlbumView />
+      <View className="px-4 pt-3">
+        <AlbumView />
+      </View>
     </SafeAreaView>
   );
 };
