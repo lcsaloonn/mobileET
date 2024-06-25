@@ -1,9 +1,9 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
 import UsersStoriesContainer from "src/components/molecules/home/userStoriesContainer/userStoriesContainer";
-import { useStory } from "src/api/stacks/useStories";
+import { useStory } from "src/api/hooks/useStories";
 import PostsContainer from "src/components/molecules/home/postsContainer/posts.container";
-import { useLatestPosts } from "src/api/stacks/usePosts";
+import { useLatestPosts } from "src/api/hooks/usePosts";
 import { ScrollView } from "react-native";
 import HeaderComponent from "src/components/molecules/header/header.component";
 

@@ -1,8 +1,7 @@
 [
   {
     "id": 1,
-    "albumName": "Italie 2024",
-    "albumType": "album",
+    "name": "Italie 2024",
     "folderUrl": "mocks/albums/",
     "creationDate": "22/05/2024",
     "likes": 104,
@@ -15,8 +14,7 @@
   },
   {
     "id": 2,
-    "albumName": "France 2023",
-    "albumType": "album",
+    "name": "France 2023",
     "folderUrl": "mocks/albums/",
     "creationDate": "22/05/2024",
     "likes": 104,
@@ -29,8 +27,7 @@
   },
   {
     "id": 3,
-    "albumName": "Sri-lanka 2024",
-    "albumType": "album",
+    "name": "Sri-lanka 2024",
     "folderUrl": "mocks/albums/",
     "creationDate": "22/05/2024",
     "likes": 104,

@@ -1,3 +1,5 @@
-import { TStories, TStory } from "./stories.type";
+import { TAlbum } from "./album.type";
+import { TPost } from "./post.type";
+import { TStory } from "./stories.type";
 
-export { TStories, TStory };
+export { TStory, TAlbum, TPost };

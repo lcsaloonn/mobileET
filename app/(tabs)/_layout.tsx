@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Octicons from "react-native-vector-icons/Octicons";
+import HeaderComponent from "src/components/molecules/header/header.component";
 
 const TabsLayout = () => {
   const tabsList = [
@@ -44,6 +45,11 @@ const TabsLayout = () => {
             key={e.name}
             options={{
               title: e.name,
+              // headerShown: true,
+              // header: () => <HeaderComponent />,
+              // headerStyle: {
+              //   height: 10,
+              // },
               headerShown: false,
               tabBarIcon: ({ color, focused }) => e.icon,
             }}
