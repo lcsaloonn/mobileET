@@ -34,7 +34,21 @@ const AlbumView = () => {
     moments: <WorkInProgressComponent />,
     map: <WorkInProgressComponent />,
   };
-
+  {
+    /* <Link
+            className=" bg-gray-300 text-gray-500"
+            style={{
+              fontSize: 50,
+              textAlignVertical: "center",
+              height: 100,
+              textAlign: "center",
+              borderRadius: 10,
+            }}
+            href={"screens/create"}
+          >
+            +
+          </Link> */
+  }
   return (
     <View className="h-full">
       <Stack.Screen options={{ headerTitle: "todo" }} />

@@ -10,6 +10,7 @@
     "description": "Best holiday ever",
     "creator": "Thomas E",
     "mainPicture": "t4.jpg",
+    "category": "memory",
     "access": ["private"]
   },
   {
@@ -23,6 +24,7 @@
     "description": "Best holiday ever",
     "creator": "Thomas E",
     "mainPicture": "t3.jpg",
+    "category": "memory",
     "access": ["private"]
   },
   {
@@ -36,6 +38,7 @@
     "description": "Best holiday ever",
     "creator": "Thomas E",
     "mainPicture": "t2.jpg",
+    "category": "memory",
     "access": ["private"]
   },
   {
@@ -49,6 +52,7 @@
     "description": "Best holiday ever",
     "creator": "Thomas E",
     "mainPicture": "t4.jpg",
+    "category": "memory",
     "access": ["private"]
   },
   {
@@ -62,6 +66,105 @@
     "description": "Best holiday ever",
     "creator": "Thomas E",
     "mainPicture": "moto.jpg",
+    "category": "holidays",
+    "access": ["private"]
+  },
+  {
+    "id": 6,
+    "name": "Italie 2024",
+    "folderUrl": "mocks/albums/",
+    "creationDate": "22/05/2024",
+    "likes": 104,
+    "views": 203,
+    "numberOfPictures": 20,
+    "description": "Best holiday ever",
+    "creator": "Thomas E",
+    "mainPicture": "moto.jpg",
+    "category": "holidays",
+    "access": ["private"]
+  },
+  {
+    "id": 7,
+    "name": "Italie 2024",
+    "folderUrl": "mocks/albums/",
+    "creationDate": "22/05/2024",
+    "likes": 104,
+    "views": 203,
+    "numberOfPictures": 20,
+    "description": "Best holiday ever",
+    "creator": "Thomas E",
+    "mainPicture": "moto.jpg",
+    "category": "holidays",
+    "access": ["private"]
+  },
+  {
+    "id": 8,
+    "name": "Italie 2024",
+    "folderUrl": "mocks/albums/",
+    "creationDate": "22/05/2024",
+    "likes": 104,
+    "views": 203,
+    "numberOfPictures": 20,
+    "description": "Best holiday ever",
+    "creator": "Thomas E",
+    "mainPicture": "moto.jpg",
+    "category": "holidays",
+    "access": ["private"]
+  },
+  {
+    "id": 9,
+    "name": "Italie 2024",
+    "folderUrl": "mocks/albums/",
+    "creationDate": "22/05/2024",
+    "likes": 104,
+    "views": 203,
+    "numberOfPictures": 20,
+    "description": "Best holiday ever",
+    "creator": "Thomas E",
+    "mainPicture": "moto.jpg",
+    "category": "holidays",
+    "access": ["private"]
+  },
+  {
+    "id": 10,
+    "name": "Italie 2024",
+    "folderUrl": "mocks/albums/",
+    "creationDate": "22/05/2024",
+    "likes": 104,
+    "views": 203,
+    "numberOfPictures": 20,
+    "description": "Best holiday ever",
+    "creator": "Thomas E",
+    "mainPicture": "moto.jpg",
+    "category": "favorite",
+    "access": ["private"]
+  },
+  {
+    "id": 11,
+    "name": "Italie 2024",
+    "folderUrl": "mocks/albums/",
+    "creationDate": "22/05/2024",
+    "likes": 104,
+    "views": 203,
+    "numberOfPictures": 20,
+    "description": "Best holiday ever",
+    "creator": "Thomas E",
+    "mainPicture": "moto.jpg",
+    "category": "favorite",
+    "access": ["private"]
+  },
+  {
+    "id": 12,
+    "name": "Italie 2024",
+    "folderUrl": "mocks/albums/",
+    "creationDate": "22/05/2024",
+    "likes": 104,
+    "views": 203,
+    "numberOfPictures": 20,
+    "description": "Best holiday ever",
+    "creator": "Thomas E",
+    "mainPicture": "t2.jpg",
+    "category": "favorite",
     "access": ["private"]
   }
 ]

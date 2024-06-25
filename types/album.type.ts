@@ -12,4 +12,5 @@ export type TAlbum = {
   numberOfPictures: number;
   mainPicture: string;
   access: string[];
+  category: string;
 };
