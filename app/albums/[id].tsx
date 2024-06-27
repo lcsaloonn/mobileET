@@ -58,7 +58,7 @@ const AlbumView = () => {
           catgories={categories as [string, string, string]}
           defaultIndexSelection={0}
         />
-        <ShowLoadedComponent query={pictureQuery}>
+        <ShowLoadedComponent isLoading={false} isError={false} isSuccess={true}>
           <View className="mt-7">{component[selectedType]}</View>
         </ShowLoadedComponent>
         <ButtonRoundAdd />

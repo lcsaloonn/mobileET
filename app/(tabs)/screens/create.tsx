@@ -12,11 +12,7 @@ const create = () => {
     // album view in here for the moment
     <SafeAreaView className="h-full mx-4 my-4">
       <View>
-        <AlbumHeaderButtons
-          selectedType={(name) => setSelectedTyped(name)}
-          catgories={categories as [string, string, string]}
-          defaultIndexSelection={0}
-        />
+        <Text>create</Text>
       </View>
       {/* square for the different views by 2 or more */}
     </SafeAreaView>
