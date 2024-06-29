@@ -1,0 +1,19 @@
+{
+  "albumFollowed": [
+    {
+      "id": "1",
+      "name": "my Favourit",
+      "isFollowed": true
+    },
+    {
+      "id": "2",
+      "name": "Holidays",
+      "isFollowed": true
+    },
+    {
+      "id": "3",
+      "name": "Family",
+      "isFollowed": true
+    }
+  ]
+}

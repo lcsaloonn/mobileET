@@ -3,6 +3,7 @@ export const httpRoutes = {
   PICTURE: "/picture",
   ALBUMS: "",
   POSTS: "",
+  SETTINGS: "",
 } as const;
 
 export const mockRoutes = {
@@ -11,6 +12,7 @@ export const mockRoutes = {
   ["getAlbum"]: "getAlbum.json",
   ["getStories"]: "getStories.json",
   ["getLatestPost"]: "getLatestPost.json",
+  ["getSettings"]: "getSettings.json",
 };
 
 export type TRoutes = (typeof httpRoutes)[keyof typeof httpRoutes];

@@ -23,7 +23,7 @@ const AccordeonComponent = ({
           <Pressable onPress={() => setIsOpen((prev) => !prev)}>
             <Feather
               style={{ fontSize: 22, fontWeight: 700 }}
-              name={isOpen ? "chevron-up" : "chevron-right"}
+              name={isOpen ? "chevron-down" : "chevron-right"}
             />
           </Pressable>
         </View>
