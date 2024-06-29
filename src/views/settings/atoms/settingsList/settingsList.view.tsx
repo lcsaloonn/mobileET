@@ -5,7 +5,6 @@ import { useSettings } from "src/api/hooks/useSettings";
 
 const SettingsListView = () => {
   const { data } = useSettings();
-  console.log(data);
   return (
     <View className="pt-5">
       <ScrollView>
