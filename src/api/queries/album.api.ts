@@ -15,7 +15,7 @@ async function getAlbums(config?: AxiosRequestConfig): Promise<TAlbum[]> {
 
 async function getAlbumById(id: string): Promise<TAlbum> {
   try {
-    const response = await HttpService.instance.get("", "getAlbumPictures");
+    const response = await HttpService.instance.get("", "getAlbum");
     return response.data;
   } catch (e) {
     console.error(e);

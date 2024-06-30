@@ -1,7 +1,7 @@
 {
   "id": 1,
-  "albumName": "Italie 2024",
-  "albumType": "album",
+  "name": "Italie 2024",
+  "type": "album",
   "folderUrl": "mocks/albums/",
   "creationDate": "22/05/2024",
   "likes": 104,
