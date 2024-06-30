@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-
 import { Stack, useLocalSearchParams } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
@@ -13,7 +12,7 @@ import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/sh
 const categories = ["gallery", "moments", "map"] as const;
 type Categories = (typeof categories)[number];
 
-const AlbumView = () => {
+const AlbumsView = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [selectedType, setSelectedTyped] = useState<Categories>(categories[0]);
 
@@ -67,4 +66,4 @@ const AlbumView = () => {
   );
 };
 
-export default AlbumView;
+export default AlbumsView;

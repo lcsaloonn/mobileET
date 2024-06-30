@@ -13,7 +13,7 @@ async function getAlbums(config?: AxiosRequestConfig): Promise<TAlbum[]> {
   }
 }
 
-async function getPictureByAlbumId(id: string) {
+async function getAlbumById(id: string): Promise<TAlbum> {
   try {
     const response = await HttpService.instance.get("", "getAlbumPictures");
     return response.data;
@@ -22,4 +22,4 @@ async function getPictureByAlbumId(id: string) {
   }
 }
 
-export { getAlbums, getPictureByAlbumId };
+export { getAlbums, getAlbumById };

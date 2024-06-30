@@ -31,7 +31,7 @@ const AlbumListCategoryComponent = ({
               <Pressable
                 onPress={() =>
                   router.push({
-                    pathname: "/albums/[id]",
+                    pathname: "/album/[id]",
                     params: { id: item.id },
                   })
                 }

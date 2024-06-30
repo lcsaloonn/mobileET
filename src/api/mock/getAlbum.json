@@ -10,5 +10,14 @@
   "description": "Best holiday ever",
   "creator": "Thomas E",
   "mainPicture": "t4.jpg",
+  "pictures": [
+    "t4.jpg",
+    "t1.jpg",
+    "t3.jpg",
+    "t2.jpg",
+    "t5.jpg",
+    "t6.jpg",
+    "t7.jpg"
+  ],
   "access": ["private"]
 }
