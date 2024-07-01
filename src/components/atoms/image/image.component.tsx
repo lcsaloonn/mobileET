@@ -20,7 +20,6 @@ const ImageComponent = ({
   className,
   defaultStyle = true,
 }: TImageComponent) => {
-  console.log(getImageRoute(picture, pictureFolder));
   return (
     <Image
       source={{

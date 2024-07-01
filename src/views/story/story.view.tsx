@@ -11,9 +11,9 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useStory } from "src/api/hooks/useStories";
 import ImageComponent from "src/components/atoms/image/image.component";
-import { StoryFooter, StoryHeader } from "src/components/atoms/story/z-index";
 import { toDisplayNameFormat } from "src/helpers/text/format";
 import { findUserStories, handleStory } from "./story.helper";
+import { StoryHeader, StoryFooter } from "./atoms/z-index";
 
 type TStoryView = {
   storyId: string;

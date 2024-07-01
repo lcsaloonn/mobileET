@@ -1,13 +1,27 @@
 import { Stack, useLocalSearchParams } from "expo-router";
-import { FlatList, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useGetAlbum } from "src/api/hooks/useAlbum";
 import ImageComponent from "src/components/atoms/image/image.component";
+import ModalComponent from "src/components/atoms/modal/modal.component";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
+import AlbumView from "src/views/album/album.view";
+import AlbumSwipeView from "src/views/album/albumswipe.view";
 
-const AlbumView = () => {
+const AlbumContainer = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { data, isLoading, isError, isSuccess } = useGetAlbum(id);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPictureIndex, setSelectedPictureIndex] = useState<
+    number | undefined
+  >(undefined);
+
+  useEffect(() => {
+    if (selectedPictureIndex) {
+      setIsModalOpen(true);
+    }
+  }, [selectedPictureIndex]);
 
   return (
     <>
@@ -22,34 +36,19 @@ const AlbumView = () => {
           isError={isError}
           isSuccess={isSuccess}
         >
-          <View className="px-4">
-            {isSuccess && (
-              <FlatList
-                contentContainerStyle={{ gap: 5, margin: "auto" }}
-                columnWrapperStyle={{ gap: 10 }}
-                data={data.pictures}
-                numColumns={3}
-                keyExtractor={(item) => item}
-                renderItem={({ index, item }) => (
-                  <ImageComponent
-                    picture={item}
-                    pictureFolder={data.folderUrl}
-                    defaultStyle={true}
-                  />
-                )}
-              />
-            )}
-          </View>
-          <Text>ici</Text>
-          <ImageComponent
-            picture={"t3.jpg"}
-            pictureFolder={"/programs/DB/etom_album_db/memories"}
-            defaultStyle={true}
-          />
+          <AlbumView data={data} setImageSelected={setSelectedPictureIndex} />
+
+          <ModalComponent isOpen={isModalOpen}>
+            <AlbumSwipeView
+              onClose={() => setIsModalOpen(false)}
+              data={data}
+              selectedPictureIndex={selectedPictureIndex}
+            />
+          </ModalComponent>
         </ShowLoadedComponent>
       </SafeAreaView>
     </>
   );
 };
 
-export default AlbumView;
+export default AlbumContainer;

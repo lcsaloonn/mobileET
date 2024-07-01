@@ -30,11 +30,9 @@ const SingleAlbumPictureComponent = ({
     if (touchX < width / 2) {
       if (currentPictureIndex + 1 !== pictures.length)
         setCurentPictureIndex((prev) => prev + 1);
-      console.log("+1");
     } else {
       if (currentPictureIndex - 1 !== 0)
         setCurentPictureIndex((prev) => prev - 1);
-      console.log("-1");
     }
   }
 
