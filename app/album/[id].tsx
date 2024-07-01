@@ -40,6 +40,12 @@ const AlbumView = () => {
               />
             )}
           </View>
+          <Text>ici</Text>
+          <ImageComponent
+            picture={"t3.jpg"}
+            pictureFolder={"/programs/DB/etom_album_db/memories"}
+            defaultStyle={true}
+          />
         </ShowLoadedComponent>
       </SafeAreaView>
     </>
