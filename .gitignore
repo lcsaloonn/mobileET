@@ -35,4 +35,4 @@ yarn-error.*
 *.tsbuildinfo
 
 # img DB
-./db
+db/
