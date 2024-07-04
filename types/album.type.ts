@@ -11,7 +11,13 @@ export type TAlbum = {
   views: number;
   numberOfPictures: number;
   mainPicture: string;
-  pictures: string[];
   access: string[];
   category: string;
+};
+
+export type TAlbumPcitures = {
+  id: string;
+  folderUrl: string;
+  albumName: string;
+  pictures: string[];
 };

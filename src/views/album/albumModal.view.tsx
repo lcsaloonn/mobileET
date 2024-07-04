@@ -1,19 +1,19 @@
 import { Pressable, View } from "react-native";
 import Ionic from "react-native-vector-icons/Ionicons";
 import ImageComponent from "src/components/atoms/image/image.component";
-import { TAlbum } from "types/album.type";
+import { TAlbumPcitures } from "types/album.type";
 
-type TAlbumSwipeView = {
+type TAlbumModalView = {
   onClose: () => void;
-  data: TAlbum;
+  data: TAlbumPcitures;
   selectedPictureIndex: number;
 };
 
-const AlbumSwipeView = ({
+const AlbumModalView = ({
   onClose,
   data,
   selectedPictureIndex,
-}: TAlbumSwipeView) => {
+}: TAlbumModalView) => {
   return (
     <View>
       <View>
@@ -30,4 +30,4 @@ const AlbumSwipeView = ({
     </View>
   );
 };
-export default AlbumSwipeView;
+export default AlbumModalView;

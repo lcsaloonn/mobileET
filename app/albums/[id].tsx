@@ -1,68 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import { Stack, useLocalSearchParams } from "expo-router";
-import { useState } from "react";
-import { View } from "react-native";
-import { getPictureByAlbumId } from "src/api/queries/album.api";
-import ButtonRoundAdd from "src/components/atoms/buttons/buttonRoundAdd/buttonRoundAdd.component";
-import WorkInProgressComponent from "src/components/atoms/workInProgress/workInProgress.componant";
-import { AlbumGalleryComponent } from "src/components/molecules/SingleAlbum";
-import AlbumHeaderButtons from "src/components/molecules/albumHeaderButtons/albumHeaderButtons.component";
-import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
-
-const categories = ["gallery", "moments", "map"] as const;
-type Categories = (typeof categories)[number];
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useGetAlbumsByCategory } from "src/api/hooks/useGetAlbumByCategory";
+import AlbumCategoryView from "src/views/albums/albumsCategory.view";
+import AlbumCategoryListView from "src/views/albums/albumsCategoryList.view";
 
 const AlbumsView = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const [selectedType, setSelectedTyped] = useState<Categories>(categories[0]);
+  const { data } = useGetAlbumsByCategory(id);
 
-  const pictureQuery = useQuery({
-    queryKey: ["pictures"],
-    queryFn: () => getPictureByAlbumId(id),
-  });
-
-  const component: { [key in Categories]: JSX.Element } = {
-    gallery: pictureQuery.isSuccess ? (
-      <AlbumGalleryComponent
-        pictures={pictureQuery.data.pictures}
-        folder={pictureQuery.data.folderUrl}
-      />
-    ) : (
-      <></>
-    ),
-    moments: <WorkInProgressComponent />,
-    map: <WorkInProgressComponent />,
-  };
-  {
-    /* <Link
-            className=" bg-gray-300 text-gray-500"
-            style={{
-              fontSize: 50,
-              textAlignVertical: "center",
-              height: 100,
-              textAlign: "center",
-              borderRadius: 10,
-            }}
-            href={"screens/create"}
-          >
-            +
-          </Link> */
-  }
   return (
-    <View className="h-full">
-      <Stack.Screen options={{ headerTitle: "todo" }} />
-      <View className="my-7 mx-5 h-full ">
-        <AlbumHeaderButtons
-          selectedType={(name: Categories) => setSelectedTyped(name)}
-          catgories={categories as [string, string, string]}
-          defaultIndexSelection={0}
-        />
-        <ShowLoadedComponent isLoading={false} isError={false} isSuccess={true}>
-          <View className="mt-7">{component[selectedType]}</View>
-        </ShowLoadedComponent>
-        <ButtonRoundAdd />
-      </View>
-    </View>
+    <SafeAreaView>
+      <AlbumCategoryView albums={data} />
+    </SafeAreaView>
   );
 };
 

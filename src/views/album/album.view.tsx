@@ -1,11 +1,9 @@
 import { View, FlatList, Pressable } from "react-native";
-import { useGetAlbum } from "src/api/hooks/useAlbum";
 import ImageComponent from "src/components/atoms/image/image.component";
-import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
-import { TAlbum } from "types/album.type";
+import { TAlbumPcitures } from "types/album.type";
 
 type TAlbumView = {
-  data: TAlbum;
+  data: TAlbumPcitures;
   setImageSelected?: React.Dispatch<React.SetStateAction<number>>;
 };
 const AlbumView = ({ data, setImageSelected }: TAlbumView) => {

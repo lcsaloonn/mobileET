@@ -18,7 +18,16 @@ const AlbumListCategoryComponent = ({
     <View className="pb-4">
       <View className="flex-row items-baseline justify-between">
         <Text className="text-lg font-medium capitalize">{categoryName}</Text>
-        <Text className="text-xs font-medium">{"view all"}</Text>
+        <Pressable
+          onPress={() =>
+            router.push({
+              pathname: "/albums/[id]",
+              params: { id: categoryName },
+            })
+          }
+        >
+          <Text className="text-xs font-medium capitalize">{"view all"}</Text>
+        </Pressable>
       </View>
 
       <FlatList

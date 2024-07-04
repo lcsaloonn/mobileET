@@ -1,8 +1,11 @@
 import { AxiosRequestConfig } from "axios";
 import { HttpService } from "..";
-import { TAlbum } from "types/album.type";
+import { TAlbum, TAlbumPcitures } from "types/album.type";
 
-async function getAlbums(config?: AxiosRequestConfig): Promise<TAlbum[]> {
+async function getAlbums(
+  category?: string,
+  config?: AxiosRequestConfig
+): Promise<TAlbum[]> {
   try {
     const response = await HttpService.instance.get("", "getAlbums", {
       ...config,
@@ -22,4 +25,17 @@ async function getAlbumById(id: string): Promise<TAlbum> {
   }
 }
 
-export { getAlbums, getAlbumById };
+async function getAlbumByCategory(category: string): Promise<TAlbum[]> {
+  return await getAlbums(category);
+}
+
+async function getPictureByAlbumId(album: string): Promise<TAlbumPcitures> {
+  try {
+    const response = await HttpService.instance.get("", "getAlbumPictures");
+    return response.data;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export { getAlbums, getAlbumById, getPictureByAlbumId, getAlbumByCategory };
