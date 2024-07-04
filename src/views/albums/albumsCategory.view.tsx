@@ -24,8 +24,8 @@ const AlbumCategoryView = ({ albums }: TAlbumCategoryView) => {
         +
       </Link>
       <FlatList
-        contentContainerStyle={{ gap: 5, margin: "auto" }}
-        columnWrapperStyle={{ gap: 10 }}
+        contentContainerStyle={{ margin: "auto" }}
+        columnWrapperStyle={{ gap: 3 }}
         numColumns={3}
         data={albums}
         keyExtractor={(item) => item.id}

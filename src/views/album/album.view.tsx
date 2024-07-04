@@ -8,24 +8,22 @@ type TAlbumView = {
 };
 const AlbumView = ({ data, setImageSelected }: TAlbumView) => {
   return (
-    <View className="px-4">
-      <FlatList
-        contentContainerStyle={{ gap: 5, margin: "auto" }}
-        columnWrapperStyle={{ gap: 10 }}
-        data={data.pictures}
-        numColumns={3}
-        keyExtractor={(item) => item}
-        renderItem={({ index, item }) => (
-          <Pressable onPress={() => setImageSelected?.(index)}>
-            <ImageComponent
-              picture={item}
-              pictureFolder={data.folderUrl}
-              defaultStyle={true}
-            />
-          </Pressable>
-        )}
-      />
-    </View>
+    <FlatList
+      contentContainerStyle={{ gap: 5, margin: "auto" }}
+      columnWrapperStyle={{ gap: 10 }}
+      data={data.pictures}
+      numColumns={3}
+      keyExtractor={(item) => item}
+      renderItem={({ index, item }) => (
+        <Pressable onPress={() => setImageSelected?.(index)}>
+          <ImageComponent
+            picture={item}
+            pictureFolder={data.folderUrl}
+            defaultStyle={true}
+          />
+        </Pressable>
+      )}
+    />
   );
 };
 export default AlbumView;
