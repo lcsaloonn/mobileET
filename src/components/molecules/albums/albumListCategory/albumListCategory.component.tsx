@@ -26,7 +26,9 @@ const AlbumListCategoryComponent = ({
             })
           }
         >
-          <Text className="text-xs font-medium capitalize">{"view all"}</Text>
+          <Text className="text-xs font-medium text-blue-500">
+            {"view all"}
+          </Text>
         </Pressable>
       </View>
 
