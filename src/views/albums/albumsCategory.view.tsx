@@ -11,19 +11,21 @@ const AlbumCategoryView = ({ albums }: TAlbumCategoryView) => {
   const list = [{ id: "0" }, ...albums] as TAlbum[];
   return (
     <FlatList
-      columnWrapperStyle={{ gap: 3 }}
+      columnWrapperStyle={{ gap: 10 }}
+      contentContainerStyle={{ gap: 10 }}
       numColumns={3}
       data={list}
       keyExtractor={(item) => item.id}
       renderItem={({ index, item }) => (
-        <View className="mr-7 my-2 w-24 ">
+        <View className=" ">
           {index === 0 ? (
             <Link
               className=" bg-gray-300 text-gray-500"
               style={{
                 fontSize: 50,
                 textAlignVertical: "center",
-                height: 100,
+                height: 110,
+                width: 110,
                 textAlign: "center",
                 borderRadius: 10,
               }}

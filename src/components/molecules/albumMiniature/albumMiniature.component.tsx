@@ -14,7 +14,11 @@ const AlbumMiniatureComponent = ({
 }: TAlbumMiniatureComponent) => {
   return (
     <View>
-      <ImageComponent picture={picture} style={styles.picture} />
+      <ImageComponent
+        picture={picture}
+        style={styles.picture}
+        defaultStyle={false}
+      />
       <Text style={styles.albumName}>{albumName}</Text>
       <Text style={styles.numberpictures}>#{numberOfPictures}</Text>
     </View>
@@ -22,7 +26,7 @@ const AlbumMiniatureComponent = ({
 };
 
 const styles = StyleSheet.create({
-  picture: { borderRadius: 10 },
+  picture: { borderRadius: 10, height: 110, width: 110 },
   albumName: { textTransform: "capitalize", fontWeight: "bold", fontSize: 12 },
   numberpictures: { fontSize: 10 },
 });
