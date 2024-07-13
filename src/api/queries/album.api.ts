@@ -1,16 +1,21 @@
 import { AxiosRequestConfig } from "axios";
 import { HttpService } from "..";
 import { TAlbum, TAlbumPcitures } from "types/album.type";
+import { httpRoutes } from "../routes/routes";
 
 async function getAlbums(
   category?: string,
   config?: AxiosRequestConfig
 ): Promise<TAlbum[]> {
   try {
-    const response = await HttpService.instance.get("", "getAlbums", {
+    const { name, routes } = httpRoutes.albumService;
+    const categoryPath = category ? `?category=${category}` : "";
+    const path = `${name}/${routes.getAlbums} ${categoryPath}`;
+
+    const response = await HttpService.instance.get(path, "getAlbums", {
       ...config,
     });
-    return response.data;
+    return response.data.albums;
   } catch (e) {
     console.error(e);
   }

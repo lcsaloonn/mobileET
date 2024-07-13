@@ -1,9 +1,14 @@
+const AlbumService = {
+  name: "album",
+  routes: {
+    getAlbum: "",
+    getAlbums: "all",
+    createAlbum: "",
+  },
+} as const;
+
 export const httpRoutes = {
-  ALBUM: "/album",
-  PICTURE: "/picture",
-  ALBUMS: "",
-  POSTS: "",
-  SETTINGS: "",
+  albumService: AlbumService,
 } as const;
 
 export const mockRoutes = {
@@ -15,5 +20,4 @@ export const mockRoutes = {
   ["getSettings"]: "getSettings.json",
 };
 
-export type TRoutes = (typeof httpRoutes)[keyof typeof httpRoutes];
 export type TMockRoutes = keyof typeof mockRoutes;

@@ -20,8 +20,8 @@ const Home = () => {
         isSuccess={sotryQuery.isSuccess && latestPostQuery.isSuccess}
       >
         <ScrollView>
-          <UsersStoriesContainer stories={sotryQuery.data} />
-          <PostsContainer posts={latestPostQuery.data} />
+          {/* <UsersStoriesContainer stories={sotryQuery.data} /> */}
+          {/* <PostsContainer posts={latestPostQuery.data} /> */}
         </ScrollView>
       </ShowLoadedComponent>
     </SafeAreaView>
