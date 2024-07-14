@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, Text } from "react-native";
 import Fontisto from "react-native-vector-icons/Fontisto";
 
 type TConnectionStatus = {
@@ -21,12 +21,12 @@ const ConnectionStatus = ({
     },
   ];
   return (
-    <View className="ml-3 mt-3 flex flex-col gap-1">
+    <View className="flex-col gap-1">
       {connections.map((e, i) => (
-        <View className="flex flex-row gap-3">
+        <View className=" flex-row gap-3 align-middle items-center" key={i}>
           <Fontisto
             name="world-o"
-            size={19}
+            size={18}
             color={e.isAccessible ? "#4F8EF7" : "#dc2626"}
           />
           <Text

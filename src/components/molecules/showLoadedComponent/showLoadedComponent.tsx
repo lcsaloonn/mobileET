@@ -1,12 +1,12 @@
-import { UseQueryResult } from "@tanstack/react-query";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import ErrorMessageComponent from "../ErrorMessage/errorMessage";
 import { PropsWithChildren } from "react";
 
 type TShowLoadedComponent = {
   isLoading: boolean;
-  isError: boolean;
+  isError?: boolean;
   isSuccess: boolean;
+  loadingMessage?: string;
 };
 
 const ShowLoadedComponent = ({
@@ -14,17 +14,21 @@ const ShowLoadedComponent = ({
   isError,
   isLoading,
   isSuccess,
+  loadingMessage,
 }: PropsWithChildren<TShowLoadedComponent>) => {
   return (
     <>
       {isLoading && (
-        <ActivityIndicator
-          size={"large"}
-          className="justify-center align-middle"
-        />
+        <View>
+          <ActivityIndicator
+            size={"large"}
+            className="justify-center align-middle"
+          />
+          <Text>{loadingMessage}</Text>
+        </View>
       )}
-      {isError && <ErrorMessageComponent />}
-      {isSuccess && children}
+
+      {!isLoading && !isSuccess ? <ErrorMessageComponent /> : children}
     </>
   );
 };

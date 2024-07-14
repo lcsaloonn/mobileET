@@ -1,18 +1,16 @@
 import axios, { Axios, AxiosRequestConfig } from "axios";
 
 import { TMockRoutes } from "./routes/routes";
-import { findMockRoutes, getBaseUrl } from "./helpers/http.helper";
+import { findMockRoutes } from "./helpers/http.helper";
 
 export class HttpService {
   private axiosClient: Axios;
   private isMock = Boolean(process.env.EXPO_PUBLIC_IS_MOCK === "true");
-  private isLocal = Boolean(process.env.EXPO_PUBLIC_IS_LOCAL === "true");
 
   static readonly instance: HttpService = new HttpService();
 
   private constructor() {
     this.axiosClient = axios.create({
-      baseURL: getBaseUrl(this.isMock, this.isLocal),
       timeout: 1000,
       headers: {
         "Content-Type": "application/json",
@@ -21,12 +19,20 @@ export class HttpService {
     });
   }
 
-  get(url: string, mockRoute?: TMockRoutes, config?: AxiosRequestConfig) {
-    console.log(this.isMock);
-    console.log(this.isLocal);
+  get(
+    url: string,
+    isLocal: boolean,
+    mockRoute?: TMockRoutes,
+    config?: AxiosRequestConfig
+  ) {
     if (this.isMock && mockRoute) {
       return this.axiosClient.get(findMockRoutes(mockRoute), config);
     }
-    return this.axiosClient.get(url, config);
+
+    const baseUrl = isLocal
+      ? process.env.EXPO_PUBLIC_LOCAL_API_URL
+      : process.env.EXPO_PUBLIC_API_BASE_URL;
+
+    return this.axiosClient.get(url, { baseURL: baseUrl, ...config });
   }
 }

@@ -9,6 +9,7 @@ const AlbumService = {
 
 export const httpRoutes = {
   albumService: AlbumService,
+  health: "health",
 } as const;
 
 export const mockRoutes = {
@@ -18,6 +19,7 @@ export const mockRoutes = {
   ["getStories"]: "getStories.json",
   ["getLatestPost"]: "getLatestPost.json",
   ["getSettings"]: "getSettings.json",
+  ["noRoutes"]: "/",
 };
 
 export type TMockRoutes = keyof typeof mockRoutes;
