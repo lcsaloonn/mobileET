@@ -6,6 +6,7 @@ export const useGetHealth = () => {
     queryKey: ["health"],
     queryFn: () => getHealth(),
     refetchOnReconnect: "always",
+    refetchOnMount: true,
 
     retry: 3,
   });
