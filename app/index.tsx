@@ -1,6 +1,5 @@
-import { Pressable, Text, View } from "react-native";
-import React from "react";
-import { router } from "expo-router";
+import { Text, View } from "react-native";
+import React, { useState } from "react";
 import { useGetHealth } from "src/api/hooks/useGetHealth";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
@@ -13,17 +12,25 @@ import {
 export default function App() {
   const { isError, isLoading, isSuccess, data } = useGetHealth();
   const isMock = Boolean(process.env.EXPO_PUBLIC_IS_MOCK == "true");
+  const [isOnline, setIsOnline] = useState(false);
+  console.log(isOnline);
 
-  // console.log(data);
+  const isApiOK = (isMock: boolean, values: typeof data) => {
+    console.log(data);
+    let isLocalOK = false;
+    let isOnlineOK = false;
 
-  const isApiOK = (isMock: boolean) => {
-    if (isMock) return true;
-    if (data == false) return data;
-    for (const service in data) {
-      if (data[service] == false) return false;
-    }
-    return true;
-  }; // create test
+    if (isMock) return [true, false];
+    if (data === undefined || Object.keys(data).length == 0)
+      return [false, false];
+
+    if (data.local !== "failed") isLocalOK = true;
+    if (data.online !== "failed") isLocalOK = true;
+
+    return [isLocalOK, isOnlineOK];
+  };
+
+  const [isLocalOk, isOnlineOK] = isApiOK(isMock, data);
 
   return (
     <SafeAreaView>
@@ -35,18 +42,24 @@ export default function App() {
 
         <View className="flex-row items-center justify-around mt-10 mx-8">
           <ConnectionStatus
-            isLocalAccessible={isApiOK(isMock)}
-            isOnlineAccessible={false}
+            isLocalAccessible={isLocalOk || false}
+            isOnlineAccessible={isOnlineOK || false}
           />
-          <SwitchEnvComponent />
+          <SwitchEnvComponent isOnline={isOnline} setIsOnline={setIsOnline} />
         </View>
 
         <View className={`flex items-center justify-center mt-24`}>
           <ShowLoadedComponent
             isLoading={isLoading}
-            isSuccess={isApiOK(isMock)}
+            isSuccess={isLocalOk || isOnlineOK}
+            errorMessage={{
+              title: `${isOnline ? "Online" : "Local"} is not available`,
+            }}
           >
-            <StartButton pathname={"screens/home"} />
+            <StartButton
+              pathname={"screens/home"}
+              message={!isOnline ? "Start Local" : "Start Online"}
+            />
           </ShowLoadedComponent>
         </View>
       </View>

@@ -6,9 +6,10 @@ import Entypo from "react-native-vector-icons/Entypo";
 type TStartButton = {
   className?: string;
   pathname: string;
+  message: string;
 };
 
-const StartButton = ({ className, pathname }: TStartButton) => {
+const StartButton = ({ className, pathname, message }: TStartButton) => {
   return (
     <Pressable
       className="flex-row gap-1  mt-52 items-center"
@@ -18,7 +19,7 @@ const StartButton = ({ className, pathname }: TStartButton) => {
         })
       }
     >
-      <Text className="text-3xl font-semibold text-blue-500">Start</Text>
+      <Text className="text-3xl font-semibold text-blue-500">{message}</Text>
       <Entypo name="arrow-with-circle-right" size={18} color="#3b82f6" />
     </Pressable>
   );

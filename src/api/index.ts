@@ -1,6 +1,6 @@
 import axios, { Axios, AxiosRequestConfig } from "axios";
 
-import { TMockRoutes } from "./routes/routes";
+import { baseUrl, TMockRoutes } from "./routes/routes";
 import { findMockRoutes } from "./helpers/http.helper";
 
 export class HttpService {
@@ -25,14 +25,11 @@ export class HttpService {
     mockRoute?: TMockRoutes,
     config?: AxiosRequestConfig
   ) {
+    const env = isLocal ? "local" : "online";
     if (this.isMock && mockRoute) {
       return this.axiosClient.get(findMockRoutes(mockRoute), config);
     }
 
-    const baseUrl = isLocal
-      ? process.env.EXPO_PUBLIC_LOCAL_API_URL
-      : process.env.EXPO_PUBLIC_API_BASE_URL;
-
-    return this.axiosClient.get(url, { baseURL: baseUrl, ...config });
+    return this.axiosClient.get(url, { baseURL: baseUrl[env], ...config });
   }
 }

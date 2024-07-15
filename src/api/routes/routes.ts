@@ -1,13 +1,7 @@
-export const baseUrl: { env: string; path: string }[] = [
-  {
-    env: "local",
-    path: process.env.EXPO_PUBLIC_LOCAL_API_URL,
-  },
-  {
-    env: "online",
-    path: process.env.EXPO_PUBLIC_API_BASE_URL,
-  },
-] as const;
+export const baseUrl: { [key in "local" | "online"]: string } = {
+  local: process.env.EXPO_PUBLIC_LOCAL_API_URL,
+  online: process.env.EXPO_PUBLIC_API_BASE_URL,
+} as const;
 
 const AlbumService = {
   name: "album",

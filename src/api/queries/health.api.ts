@@ -6,8 +6,11 @@ import { findEnvWithBaseUrl } from "../helpers/http.helper";
 
 //Todo create response type
 
-export async function getHealth(config?: AxiosRequestConfig): Promise<any> {
+export async function getHealth(
+  config?: AxiosRequestConfig
+): Promise<{ ["local"]: "failed" | any; ["online"]: "failed" | any }> {
   try {
+    const response = { local: "", online: "" };
     const path = httpRoutes.health;
 
     const result = await Promise.allSettled([
@@ -18,22 +21,19 @@ export async function getHealth(config?: AxiosRequestConfig): Promise<any> {
     const success = result
       .filter((r) => r.status === "fulfilled")
       .map((r) => {
-        return {
-          value: r.value.data,
-          env: findEnvWithBaseUrl(r.value.config.baseURL, baseUrl),
-        };
+        let env = findEnvWithBaseUrl(r.value.config.baseURL, baseUrl);
+        return (response[env] = r.value.data);
       });
 
     const errors = result
       .filter((r) => r.status === "rejected")
       .map((r) => {
-        return { env: findEnvWithBaseUrl(r.reason.config.baseURL, baseUrl) };
+        let env = findEnvWithBaseUrl(r.reason.config.baseURL, baseUrl);
+        return (response[env] = "failed");
       });
 
-    const response = { success: success, error: errors };
     console.log(`Health values ${response}`);
     return response;
-    //return response.data;
   } catch (e) {
     console.error("health endpoint failed");
   }

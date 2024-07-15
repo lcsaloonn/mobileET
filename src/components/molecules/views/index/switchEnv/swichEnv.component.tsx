@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Switch, Text, View } from "react-native";
+type TSwitchEnvComponent = {
+  setIsOnline: React.Dispatch<React.SetStateAction<boolean>>;
+  isOnline: boolean;
+};
 
-const SwitchEnvComponent = () => {
-  const [isOnline, setIsOnline] = useState(false);
-
+const SwitchEnvComponent = ({ isOnline, setIsOnline }: TSwitchEnvComponent) => {
   return (
     <View className="flex flex-col items-center">
       <Text className="text-sm font-semibold ">

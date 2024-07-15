@@ -7,6 +7,10 @@ type TShowLoadedComponent = {
   isError?: boolean;
   isSuccess: boolean;
   loadingMessage?: string;
+  errorMessage?: {
+    title?: string;
+    message?: string;
+  };
 };
 
 const ShowLoadedComponent = ({
@@ -15,6 +19,7 @@ const ShowLoadedComponent = ({
   isLoading,
   isSuccess,
   loadingMessage,
+  errorMessage,
 }: PropsWithChildren<TShowLoadedComponent>) => {
   return (
     <>
@@ -28,7 +33,14 @@ const ShowLoadedComponent = ({
         </View>
       )}
 
-      {!isLoading && !isSuccess ? <ErrorMessageComponent /> : children}
+      {!isLoading && !isSuccess ? (
+        <ErrorMessageComponent
+          message={errorMessage?.message}
+          title={errorMessage?.title}
+        />
+      ) : (
+        children
+      )}
     </>
   );
 };
