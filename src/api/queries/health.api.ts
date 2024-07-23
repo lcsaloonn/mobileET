@@ -1,10 +1,7 @@
 import { AxiosRequestConfig } from "axios";
 import { HttpService } from "..";
 import { baseUrl, httpRoutes } from "../routes/routes";
-import { TApiHealth } from "types/utils/apiHealth";
 import { findEnvWithBaseUrl } from "../helpers/http.helper";
-
-//Todo create response type
 
 export async function getHealth(
   config?: AxiosRequestConfig

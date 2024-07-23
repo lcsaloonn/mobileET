@@ -3,19 +3,19 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, router } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
-import { getAllAlbum } from "src/api/queries/album.api";
+import { getAlbums } from "src/api/queries/album.api";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
 import AlbumMiniatureComponent from "src/components/molecules/albumMiniature/albumMiniature.component";
 
 const Bookmark = () => {
   const albumsQuery = useQuery({
     queryKey: ["albums"],
-    queryFn: () => getAllAlbum(),
+    queryFn: () => getAlbums(),
   });
 
   return (
     <SafeAreaView className="h-full m-auto">
-      <ShowLoadedComponent query={albumsQuery}>
+      {/* <ShowLoadedComponent query={albumsQuery}>
         <View>
           <FlatList
             data={albumsQuery.data}
@@ -57,7 +57,7 @@ const Bookmark = () => {
             )}
           />
         </View>
-      </ShowLoadedComponent>
+      </ShowLoadedComponent> */}
     </SafeAreaView>
   );
 };

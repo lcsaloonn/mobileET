@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGetHealth } from "src/api/hooks/useGetHealth";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/showLoadedComponent";
@@ -8,29 +8,19 @@ import {
   StartButton,
   SwitchEnvComponent,
 } from "src/components/molecules/views/index/z-index";
+import { isApiOK } from "src/components/molecules/views/index/helpers/checkApi";
+import { useStore } from "src/store/store";
 
 export default function App() {
-  const { isError, isLoading, isSuccess, data } = useGetHealth();
+  const { isLoading, data } = useGetHealth();
   const isMock = Boolean(process.env.EXPO_PUBLIC_IS_MOCK == "true");
   const [isOnline, setIsOnline] = useState(false);
-  console.log(isOnline);
-
-  const isApiOK = (isMock: boolean, values: typeof data) => {
-    console.log(data);
-    let isLocalOK = false;
-    let isOnlineOK = false;
-
-    if (isMock) return [true, false];
-    if (data === undefined || Object.keys(data).length == 0)
-      return [false, false];
-
-    if (data.local !== "failed") isLocalOK = true;
-    if (data.online !== "failed") isLocalOK = true;
-
-    return [isLocalOK, isOnlineOK];
-  };
-
   const [isLocalOk, isOnlineOK] = isApiOK(isMock, data);
+  const setEnv = useStore((state) => state.setEnv);
+
+  useEffect(() => {
+    setEnv(isOnline ? "online" : "local");
+  }, [isOnline]);
 
   return (
     <SafeAreaView>
@@ -51,7 +41,7 @@ export default function App() {
         <View className={`flex items-center justify-center mt-24`}>
           <ShowLoadedComponent
             isLoading={isLoading}
-            isSuccess={isLocalOk || isOnlineOK}
+            isSuccess={isOnline ? isOnlineOK : isLocalOk}
             errorMessage={{
               title: `${isOnline ? "Online" : "Local"} is not available`,
             }}

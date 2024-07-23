@@ -1,4 +1,13 @@
-import { TBaseStory } from "types/stories.type";
 import { create } from "zustand";
 
-export const useStoriesStore = create<TBaseStory[]>(() => []);
+interface IStore {
+  env: "local" | "online";
+  setEnv: (by: "local" | "online") => void;
+}
+
+const useStore = create<IStore>()((set) => ({
+  env: "local",
+  setEnv: (env: "local" | "online") => set(() => ({ env: env })),
+}));
+
+export { useStore };

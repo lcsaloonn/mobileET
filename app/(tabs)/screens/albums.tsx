@@ -6,10 +6,10 @@ import ShowLoadedComponent from "src/components/molecules/showLoadedComponent/sh
 import AlbumCategoryListView from "src/views/albums/albumsCategoryList.view";
 
 const AlbumsStack = () => {
-  const { data, isLoading, isError, isSuccess } = useGetAlbums();
+  // const { data, isLoading, isError, isSuccess } = useGetAlbums();
   return (
     <SafeAreaView>
-      <HeaderComponent />
+      {/* <HeaderComponent />
       <View className="px-4 pt-3">
         <ShowLoadedComponent
           isLoading={isLoading}
@@ -18,7 +18,7 @@ const AlbumsStack = () => {
         >
           {isSuccess && <AlbumCategoryListView albums={data} />}
         </ShowLoadedComponent>
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 };
