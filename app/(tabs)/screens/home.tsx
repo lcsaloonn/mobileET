@@ -8,16 +8,15 @@ import { ScrollView } from "react-native";
 import HeaderComponent from "src/components/molecules/header/header.component";
 
 const Home = () => {
-  const sotryQuery = useStory();
+  const storyQuery = useStory();
   const latestPostQuery = useLatestPosts();
   return (
     <SafeAreaView>
       {/* to be move */}
       <HeaderComponent />
       <ShowLoadedComponent
-        isLoading={sotryQuery.isLoading && latestPostQuery.isLoading}
-        isError={sotryQuery.isError && latestPostQuery.isError}
-        isSuccess={sotryQuery.isSuccess && latestPostQuery.isSuccess}
+        isLoading={storyQuery.isLoading && latestPostQuery.isLoading}
+        isSuccess={storyQuery.isSuccess && latestPostQuery.isSuccess}
       >
         <ScrollView>
           {/* <UsersStoriesContainer stories={sotryQuery.data} /> */}

@@ -2,19 +2,25 @@ import { AxiosRequestConfig } from "axios";
 import { HttpService } from "..";
 import { TAlbum, TAlbumPcitures } from "types/album.type";
 import { httpRoutes } from "../routes/routes";
+import { TCommonApiConfig } from "../types/Tcommom.api";
 
 async function getAlbums(
-  category?: string,
-  config?: AxiosRequestConfig
+  baseConfig: TCommonApiConfig,
+  category?: string
 ): Promise<TAlbum[]> {
   try {
     const { name, routes } = httpRoutes.albumService;
-    const categoryPath = category ? `?category=${category}` : "";
-    const path = `${name}/${routes.getAlbums} ${categoryPath}`;
+    const path = `${name}/${routes.getAlbums}`;
 
-    const response = await HttpService.instance.get(path, "getAlbums", {
-      ...config,
-    });
+    const response = await HttpService.instance.get(
+      path,
+      baseConfig.isLocal,
+      "getAlbums",
+      {
+        ...baseConfig.config,
+        params: category,
+      }
+    );
     return response.data.albums;
   } catch (e) {
     console.error(e);

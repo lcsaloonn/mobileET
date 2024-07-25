@@ -1,4 +1,4 @@
-import { Image, ImageStyle, StyleProp, StyleSheet } from "react-native";
+import { Image, ImageStyle, StyleSheet } from "react-native";
 import { getImageRoute } from "./image.helper";
 
 type TImageComponent = {
@@ -26,6 +26,9 @@ const ImageComponent = ({
         uri: getImageRoute(picture, pictureFolder),
       }}
       style={[style, defaultStyle && styles.image]}
+      defaultSource={{
+        uri: getImageRoute("t4.jpg", "mocks/albums/"),
+      }}
     />
   );
 };

@@ -19,7 +19,7 @@ export default function App() {
   const setEnv = useStore((state) => state.setEnv);
 
   useEffect(() => {
-    setEnv(isOnline ? "online" : "local");
+    setEnv(!isOnline);
   }, [isOnline]);
 
   return (

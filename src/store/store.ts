@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
 interface IStore {
-  env: "local" | "online";
-  setEnv: (by: "local" | "online") => void;
+  isLocal: boolean | undefined;
+  setEnv: (env: boolean) => void;
 }
 
 const useStore = create<IStore>()((set) => ({
-  env: "local",
-  setEnv: (env: "local" | "online") => set(() => ({ env: env })),
+  isLocal: undefined,
+  setEnv: (env: boolean) => set(() => ({ isLocal: env })),
 }));
 
 export { useStore };
